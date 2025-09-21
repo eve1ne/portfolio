@@ -1,10 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
 <body>
-  <h1>Projects</h1>
-  {% for project in projects %}
-  <p>{{project.title}}</p>
-  {% endfor %}
+  <h1>Engineering Projects</h1>
+    <ul>
+    {% for project in projects %}
+        <li>
+        <h2>{{ project['title'] }}</h2>
+        <p>{{ project['description'] }}</p>
+        {% if project['video_url'] %}
+            <video controls src="{{ project['video_url'] }}"></video>
+        {% endif %}
+        </li>
+    {% endfor %}
+    </ul>
+
+    <h1>Artworks</h1>
+    <ul>
+    {% for art in artworks %}
+        <li>
+        <h2>{{ art['title'] }}</h2>
+        <p>{{ art['description'] }}</p>
+        <img src="{{ art['image_url'] }}" alt="{{ art['title'] }}">
+        </li>
+    {% endfor %}
+    </ul>
+
 </body>
 </html>
 
