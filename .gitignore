@@ -1,6 +1,7 @@
 *.pem
 *.db
 var/
+tests/
 
 # Python
 *.pyc
