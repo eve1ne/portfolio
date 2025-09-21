@@ -22,13 +22,13 @@ CrawlURL = collections.namedtuple('CrawlURL', ['url', 'source'])
 def test_pycodestyle():
     """Run pycodestyle."""
     assert_no_prohibited_terms("nopep8", "noqa", "pylint")
-    subprocess.run(["pycodestyle", "insta485"], check=True)
+    subprocess.run(["pycodestyle", "portfolio"], check=True)
 
 
 def test_pydocstyle():
     """Run pydocstyle."""
     assert_no_prohibited_terms("nopep8", "noqa", "pylint")
-    subprocess.run(["pydocstyle", "insta485"], check=True)
+    subprocess.run(["pydocstyle", "portfolio"], check=True)
 
 
 def test_pylint():
@@ -37,12 +37,12 @@ def test_pylint():
     subprocess.run([
         "pylint",
         "--rcfile", "pyproject.toml",
-        "insta485",
+        "portfolio",
     ], check=True)
 
 
 def test_html(client):
-    """Validate generated HTML5 in insta485/templates/ ."""
+    """Validate generated HTML5 in portfolio/templates/ ."""
     # Log in as awdeorio
     response = client.post(
         "/accounts/",
@@ -90,7 +90,7 @@ def assert_no_prohibited_terms(*terms):
                 "--exclude=__init__.py",
                 "--exclude=bundle.js",
                 "--exclude=*node_modules/*",
-                "insta485",
+                "portfolio",
             ],
             check=False,  # We'll check the return code manually
             stdout=subprocess.PIPE,

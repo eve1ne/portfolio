@@ -16,7 +16,7 @@ https://docs.pytest.org/en/latest/fixture.html#conftest-py-sharing-fixture-funct
 import subprocess
 import sqlite3
 import pytest
-import insta485
+import portfolio
 
 
 def pytest_addoption(parser):
@@ -43,27 +43,27 @@ def client_setup_teardown():
     Flask docs: https://flask.palletsprojects.com/en/1.1.x/testing/#testing
     """
     # Reset the database
-    subprocess.run(["bin/insta485db", "reset"], check=True)
+    subprocess.run(["bin/portfoliodb", "reset"], check=True)
 
     # Configure Flask test server
-    insta485.app.config["TESTING"] = True
+    portfolio.app.config["TESTING"] = True
 
     # Transfer control to test.  The code before the "yield" statement is setup
     # code, which is executed before the test.  Code after the "yield" is
     # teardown code, which is executed at the end of the test.  Teardown code
     # is executed whether the test passed or failed.
-    with insta485.app.test_client() as client:
+    with portfolio.app.test_client() as client:
         yield client
 
     # Reset the database. After running any test any of the changes made
     # to the database should be undone.
-    subprocess.run(["bin/insta485db", "reset"], check=True)
+    subprocess.run(["bin/portfoliodb", "reset"], check=True)
 
 
 @pytest.fixture(name="db_connection")
 def db_setup_teardown():
-    """Connect to insta485's sqlite database."""
-    db_connection = sqlite3.connect("var/insta485.sqlite3")
+    """Connect to portfolio's sqlite database."""
+    db_connection = sqlite3.connect("var/portfolio.sqlite3")
 
     # Configure database to return dictionaries keyed on column name
     def dict_factory(cursor, row):

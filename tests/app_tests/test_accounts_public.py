@@ -19,7 +19,7 @@ def test_accounts_create(client):
     reused by many tests.  Docs: https://docs.pytest.org/en/latest/fixture.html
     """
     # Connect to the database
-    connection = sqlite3.connect("var/insta485.sqlite3")
+    connection = sqlite3.connect("var/portfolio.sqlite3")
     connection.execute("PRAGMA foreign_keys = ON")
 
     # Number of posts and users before adding a user
@@ -139,7 +139,7 @@ def test_accounts_edit(client, mocker):
     assert response.status_code == 200
 
     # Look up new users in the database
-    connection = sqlite3.connect("var/insta485.sqlite3")
+    connection = sqlite3.connect("var/portfolio.sqlite3")
     connection.execute("PRAGMA foreign_keys = ON")
     cur = connection.execute(
         "SELECT username, fullname, email, filename "

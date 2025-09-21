@@ -43,24 +43,24 @@ def setup_teardown_fixture():
     assert wait_for_stop()
 
 
-def test_insta485db_destroy():
-    """Verify insta485db destroy removes DB file."""
-    assert_is_shell_script("bin/insta485db")
-    subprocess.run(["bin/insta485db", "destroy"], check=True)
-    assert not os.path.exists("var/insta485.sqlite3")
+def test_portfoliodb_destroy():
+    """Verify portfoliodb destroy removes DB file."""
+    assert_is_shell_script("bin/portfoliodb")
+    subprocess.run(["bin/portfoliodb", "destroy"], check=True)
+    assert not os.path.exists("var/portfolio.sqlite3")
     assert not os.path.exists("var/uploads")
 
 
-def test_insta485db_create():
-    """Verify insta485db create populates DB with default data."""
-    assert_is_shell_script("bin/insta485db")
+def test_portfoliodb_create():
+    """Verify portfoliodb create populates DB with default data."""
+    assert_is_shell_script("bin/portfoliodb")
 
     # Destroy, then create database
-    subprocess.run(["bin/insta485db", "destroy"], check=True)
-    subprocess.run(["bin/insta485db", "create"], check=True)
+    subprocess.run(["bin/portfoliodb", "destroy"], check=True)
+    subprocess.run(["bin/portfoliodb", "create"], check=True)
 
     # Verify files were created
-    assert os.path.exists("var/insta485.sqlite3")
+    assert os.path.exists("var/portfolio.sqlite3")
     assert os.path.exists(
         "var/uploads/5ecde7677b83304132cb2871516ea50032ff7a4f.jpg")
     assert os.path.exists(
@@ -79,7 +79,7 @@ def test_insta485db_create():
         "var/uploads/2ec7cf8ae158b3b1f40065abfb33e81143707842.jpg")
 
     # Connect to the database
-    connection = sqlite3.connect("var/insta485.sqlite3")
+    connection = sqlite3.connect("var/portfolio.sqlite3")
     connection.execute("PRAGMA foreign_keys = ON")
 
     # There should be 4 rows in the 'users' table
@@ -88,14 +88,14 @@ def test_insta485db_create():
     assert num_rows == 4
 
 
-def test_insta485db_reset():
-    """Verify insta485db reset does a destroy and a create."""
+def test_portfoliodb_reset():
+    """Verify portfoliodb reset does a destroy and a create."""
     # Create a "stale" database file
-    dbfile = pathlib.Path("var/insta485.sqlite3")
+    dbfile = pathlib.Path("var/portfolio.sqlite3")
     dbfile.write_text("this should be overwritten")
 
     # Reset the database
-    subprocess.run(["bin/insta485db", "reset"], check=True)
+    subprocess.run(["bin/portfoliodb", "reset"], check=True)
 
     # Verify database file was overwritten.  Note that we have to open the file
     # in binary mode because sqlite3 format is not plain text.
@@ -103,12 +103,12 @@ def test_insta485db_reset():
     assert b"this should be overwritten" not in content
 
 
-def test_insta485db_dump():
-    """Spot check insta485db dump for a few data points."""
-    assert_is_shell_script("bin/insta485db")
-    subprocess.run(["bin/insta485db", "reset"], check=True)
+def test_portfoliodb_dump():
+    """Spot check portfoliodb dump for a few data points."""
+    assert_is_shell_script("bin/portfoliodb")
+    subprocess.run(["bin/portfoliodb", "reset"], check=True)
     output = subprocess.run(
-        ["bin/insta485db", "dump"],
+        ["bin/portfoliodb", "dump"],
         check=True, stdout=subprocess.PIPE, universal_newlines=True,
     ).stdout
     assert "awdeorio" in output
@@ -116,8 +116,8 @@ def test_insta485db_dump():
     assert "Walking the plank" in output
 
 
-def test_insta485run(setup_teardown):
-    """Verify insta485run script behavior."""
+def test_portfoliorun(setup_teardown):
+    """Verify portfoliorun script behavior."""
     # We need to use subprocess.run() on commands that will return non-zero
     # pylint: disable=subprocess-run-check
 
@@ -125,22 +125,22 @@ def test_insta485run(setup_teardown):
         f'Found running process on port {PORT_NUM}.'
 
     # Try to start with missing database
-    db_path = pathlib.Path("var/insta485.sqlite3")
+    db_path = pathlib.Path("var/portfolio.sqlite3")
     if db_path.exists():
         db_path.unlink()
-    completed_process = subprocess.run(["bin/insta485run"])
+    completed_process = subprocess.run(["bin/portfoliorun"])
     assert completed_process.returncode != 0
 
     # Create database
-    completed_process = subprocess.run(["bin/insta485db", "create"])
-    assert os.path.exists("var/insta485.sqlite3")
+    completed_process = subprocess.run(["bin/portfoliodb", "create"])
+    assert os.path.exists("var/portfolio.sqlite3")
 
     # Execute student run script in a concurrent thread.  Don't check the
     # return code because test cleanup will kill the process
-    assert_is_shell_script("bin/insta485run")
+    assert_is_shell_script("bin/portfoliorun")
     thread = threading.Thread(
         target=subprocess.run,
-        args=(["bin/insta485run"],),
+        args=(["bin/portfoliorun"],),
         kwargs={"check": False},
     )
     thread.start()
@@ -161,10 +161,10 @@ def test_insta485run(setup_teardown):
     assert response.status_code == 200
 
 
-def test_insta485test():
-    """Verify insta485test script contains correct commands."""
-    assert_is_shell_script("bin/insta485test")
-    lines = pathlib.Path("bin/insta485test")\
+def test_portfoliotest():
+    """Verify portfoliotest script contains correct commands."""
+    assert_is_shell_script("bin/portfoliotest")
+    lines = pathlib.Path("bin/portfoliotest")\
         .read_text(encoding='utf-8').splitlines()
     assert any(line.startswith("pycodestyle") for line in lines)
     assert any(line.startswith("pydocstyle") for line in lines)

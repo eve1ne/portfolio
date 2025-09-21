@@ -10,7 +10,7 @@ import re
 from urllib.parse import urlparse, urlencode
 
 import bs4
-import insta485
+import portfolio
 
 
 def test_postid_1(client, noauth):
@@ -393,13 +393,13 @@ def test_delete_post(client, noauth):
     assert urlpath == "/users/awdeorio/"
 
     # Verify postid=1 is not in database
-    connection = insta485.model.get_db()
+    connection = portfolio.model.get_db()
     cur = connection.execute("SELECT * from posts WHERE postid=1")
     results = cur.fetchall()
     assert not results
 
     # Verify comments on postid=1 are not in database
-    connection = insta485.model.get_db()
+    connection = portfolio.model.get_db()
     cur = connection.execute("SELECT * from comments WHERE postid=1")
     results = cur.fetchall()
     assert not results

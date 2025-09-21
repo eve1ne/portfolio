@@ -25,7 +25,7 @@ def db_setup_teardown():
     """
     Create an in-memory sqlite3 database.
 
-    This fixture is used only for the database tests, not the insta485 tests.
+    This fixture is used only for the database tests, not the portfolio tests.
     """
     # Create a temporary in-memory database
     db_connection = sqlite3.connect(":memory:")
