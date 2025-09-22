@@ -1,46 +1,26 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends "layout.html" %}
+<h1>Computer Science Projects</h1>
+<ul>
+{% for project in projects %}
+    <li>
+    <h2>{{ project['title'] }}</h2>
+    <p>{{ project['description'] }}</p>
+    {% if project['video_url'] %}
+        <video controls src="{{ project['video_url'] }}"></video>
+    {% endif %}
+    </li>
+{% endfor %}
+</ul>
 
-<head>
-  <title>insta485</title>
-  <link rel="stylesheet" type="text/css" href="/static/css/style.css" />
-</head>
+<h1>Art Projects</h1>
+<ul>
+{% for art in artworks %}
+    <li>
+    <h2>{{ art['title'] }}</h2>
+    <p>{{ art['description'] }}</p>
+    <img src="{{ art['image_url'] }}" alt="{{ art['title'] }}">
+    </li>
+{% endfor %}
+</ul>
 
-<body>
-    <header class="header">
-        <div class="logo">
-        <a href="/"><img src="/static/images/logo.png" alt="Logo" /></a>
-        </div>
-        <nav>
-        <a href="/" class="nav-item">Portfolio</a>
-        <a href="/explore/" class="nav-item">explore</a>
-        </nav>
-    </header>
-
-    <h1>Computer Science Projects</h1>
-    <ul>
-    {% for project in projects %}
-        <li>
-        <h2>{{ project['title'] }}</h2>
-        <p>{{ project['description'] }}</p>
-        {% if project['video_url'] %}
-            <video controls src="{{ project['video_url'] }}"></video>
-        {% endif %}
-        </li>
-    {% endfor %}
-    </ul>
-
-    <h1>Art Projects</h1>
-    <ul>
-    {% for art in artworks %}
-        <li>
-        <h2>{{ art['title'] }}</h2>
-        <p>{{ art['description'] }}</p>
-        <img src="{{ art['image_url'] }}" alt="{{ art['title'] }}">
-        </li>
-    {% endfor %}
-    </ul>
-
-</body>
-</html>
 

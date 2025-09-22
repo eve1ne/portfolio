@@ -8,9 +8,9 @@ import flask
 import portfolio
 
 
-@portfolio.app.route('/')
-def show_index():
-    """Display the homepage with featured/current projects."""
+@portfolio.app.route('/projects/')
+def show_projects():
+    """Display all projects."""
     # Connect to database
     connection = portfolio.model.get_db()
 
@@ -40,4 +40,4 @@ def show_index():
         "artworks": artworks
     }
 
-    return flask.render_template("index.html", **context)
+    return flask.render_template("projects.html", **context)
