@@ -1,7 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
+
+<head>
+  <title>insta485</title>
+  <link rel="stylesheet" type="text/css" href="/static/css/style.css" />
+</head>
+
 <body>
-  <h1>Engineering Projects</h1>
+    <header class="header">
+        <div class="logo">
+        <a href="/"><img src="/static/images/logo.png" alt="Logo" /></a>
+        </div>
+        <nav>
+        <a href="/" class="nav-item">Portfolio</a>
+        <a href="/explore/" class="nav-item">explore</a>
+        </nav>
+    </header>
+
+    <h1>Computer Science Projects</h1>
     <ul>
     {% for project in projects %}
         <li>
@@ -14,7 +30,7 @@
     {% endfor %}
     </ul>
 
-    <h1>Artworks</h1>
+    <h1>Art Projects</h1>
     <ul>
     {% for art in artworks %}
         <li>
