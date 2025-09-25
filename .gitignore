@@ -2,6 +2,7 @@
 *.db
 var/
 tests/
+portfolio/config.py
 
 # Python
 *.pyc
