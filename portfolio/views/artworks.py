@@ -1,5 +1,7 @@
 """
-portfolio index (main) view.
+portfolio art projects view.
+
+!!!!For now since I don't have a lot of projects we can combine them on one projects page!!!!!
 
 URLs include:
 /

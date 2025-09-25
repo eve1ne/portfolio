@@ -1,0 +1,17 @@
+{% extends "layout.html" %}
+
+{% block title %}{{ project['title'] }}{% endblock %}
+
+{% block content %}
+<div class="project-detail">
+    <h1>{{ project['title'] }}</h1>
+    <img src="{{ project['image_url'] }}" alt="{{ project['title'] }}">
+    <p>{{ project['description'] }}</p>
+    <div class="project-links">
+      {% if project['repo_url'] %}<a href="{{ project['repo_url'] }}" target="_blank">View Code</a>{% endif %}
+      {% if project['doc_url'] %}<a href="{{ project['doc_url'] }}" target="_blank">Docs</a>{% endif %}
+      {% if project['demo_url'] %}<a href="{{ project['demo_url'] }}" target="_blank">Demo</a>{% endif %}
+    </div>
+    <p><em>Created at {{ project['created_at'] }}</em></p>
+</div>
+{% endblock %}

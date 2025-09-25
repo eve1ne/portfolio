@@ -4,15 +4,17 @@
     <meta charset="UTF-8">
     <title>{% block title %}Portfolio{% endblock %}</title>
     <link rel="stylesheet" type="text/css" href="/static/css/style.css"/>
+    <link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+
 </head>
 <body>
-    <header>
+    <header class="header">
         <h1><a href="{{ url_for('show_index') }}">Evelyne Lee</a></h1>
         <nav>
-        <a href="{{ url_for('show_projects') }}">Projects</a>
+        <a class="nav-item" href="{{ url_for('show_projects') }}">Projects</a>
         <!-- For now since I don't have a lot of projects we can combine them on one projects page
         <a href="{{ url_for('show_artworks') }}">Artworks</a> -->
-        <a href="{{ url_for('show_about') }}">About</a>
+        <a class="nav-item" href="{{ url_for('show_about') }}">About</a>
         </nav>
     </header>
 
@@ -21,7 +23,12 @@
     </main>
 
     <footer>
-        <p>&copy; 2025 Evelyne Lee</p>
+        <p class="footer">&copy; 2025 Evelyne Lee</p>
+        <div class="social-links">
+            <a href="https://linkedin.com/in/eve1ne" target="_blank">LinkedIn</a>
+            <a href="https://github.com/eve1ne" target="_blank">GitHub</a>
+            <a href="https://instagram.com/eve1ne" target="_blank">Instagram</a>
+        </div>
     </footer>
 </body>
 </html>

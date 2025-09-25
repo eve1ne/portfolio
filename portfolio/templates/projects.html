@@ -1,1 +1,43 @@
 {% extends "layout.html" %}
+
+{% block title %}Projects - Evelyne Lee{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="hero">
+    <h1>PROJECTS</h1>
+    <div class="hero-buttons">
+        <a href="#technical-projects" class="hero-btn">Technical</a>
+        <a href="#creative-projects" class="hero-btn">Creative</a>
+    </div>
+</section>
+
+<!-- Technical Projects Section -->
+<section id="technical-projects">
+    <h2>Technical Projects</h2>
+    <div class="projects-grid">
+        {% for project in projects %}
+        <a href="{{ url_for('show_project_detail', projectid=project['projectid']) }}" class="project-card">
+            <img src="{{ project['image_url'] }}" alt="{{ project['title'] }}">
+            <h3>{{ project['title'] }}</h3>
+            <p>{{ project['description']|truncate(100) }}</p>
+        </a>
+        {% endfor %}
+    </div>
+</section>
+
+<!-- Creative Projects Section -->
+<section id="creative-projects">
+    <h2>Creative Projects</h2>
+    <div class="projects-grid">
+        {% for artwork in artworks %}
+        <a href="{{ url_for('show_artwork_detail', artid=artwork['artid']) }}" class="project-card">
+            <img src="{{ artwork['image_url'] }}" alt="{{ artwork['title'] }}">
+            <h3>{{ artwork['title'] }}</h3>
+            <p>{{ artwork['description']|truncate(100) }}</p>
+        </a>
+        {% endfor %}
+    </div>
+</section>
+
+{% endblock %}

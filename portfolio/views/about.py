@@ -1,5 +1,5 @@
 """
-portfolio index (main) view.
+portfolio About view.
 
 URLs include:
 /
