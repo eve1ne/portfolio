@@ -5,7 +5,8 @@
 {% block content %}
 <div class="project-detail">
     <h1>{{ project['title'] }}</h1>
-    <img src="{{ project['image_url'] }}" alt="{{ project['title'] }}">
+    <img src="{{ url_for('static', filename='uploads/' ~ project['image_url']) }}" alt="{{ project['title'] }}" class="project-detail-image">
+
     <p>{{ project['description'] }}</p>
     <div class="project-links">
       {% if project['repo_url'] %}<a href="{{ project['repo_url'] }}" target="_blank">View Code</a>{% endif %}

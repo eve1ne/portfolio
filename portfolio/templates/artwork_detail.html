@@ -5,7 +5,8 @@
 {% block content %}
 <div class="project-detail">
     <h1>{{ artwork['title'] }}</h1>
-    <img src="{{ artwork['image_url'] }}" alt="{{ artwork['title'] }}">
+    <img src="{{ url_for('static', filename='uploads/' ~ artwork['image_url']) }}" alt="{{ artwork['title'] }}" class="project-detail-image">
+
     <p>{{ artwork['description'] }}</p>
     {% if artwork['video_url'] %}<a href="{{ artwork['video_url'] }}" target="_blank">Watch Video</a>{% endif %}
     {% if artwork['medium'] %}<p><strong>Medium:</strong> {{ artwork['medium'] }}</p>{% endif %}

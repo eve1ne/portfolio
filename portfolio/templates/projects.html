@@ -18,7 +18,7 @@
     <div class="projects-grid">
         {% for project in projects %}
         <a href="{{ url_for('show_project_detail', projectid=project['projectid']) }}" class="project-card">
-            <img src="{{ project['image_url'] }}" alt="{{ project['title'] }}">
+            <img src="{{ url_for('static', filename='uploads/' ~ project['image_url']) }}" alt="{{ project['title'] }}" class="img">
             <h3>{{ project['title'] }}</h3>
             <p>{{ project['description']|truncate(100) }}</p>
         </a>
@@ -32,7 +32,7 @@
     <div class="projects-grid">
         {% for artwork in artworks %}
         <a href="{{ url_for('show_artwork_detail', artid=artwork['artid']) }}" class="project-card">
-            <img src="{{ artwork['image_url'] }}" alt="{{ artwork['title'] }}">
+            <img src="{{ url_for('static', filename='uploads/' ~ artwork['image_url']) }}" alt="{{ artwork['title'] }}" class="img">
             <h3>{{ artwork['title'] }}</h3>
             <p>{{ artwork['description']|truncate(100) }}</p>
         </a>

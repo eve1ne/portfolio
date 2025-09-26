@@ -6,6 +6,8 @@ URLs include:
 """
 import flask
 import portfolio
+import os
+from flask import send_from_directory
 
 
 @portfolio.app.route('/')
@@ -41,3 +43,4 @@ def show_index():
     }
 
     return flask.render_template("index.html", **context)
+

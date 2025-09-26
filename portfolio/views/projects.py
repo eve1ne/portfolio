@@ -93,6 +93,7 @@ def show_project_detail(projectid):
     )
 
     project = cur.fetchone()
+
     if project is None:
         flask.abort(404)
 

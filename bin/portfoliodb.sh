@@ -21,7 +21,7 @@ case $1 in
     mkdir -p var/uploads
     sqlite3 var/portfolio.sqlite3 < sql/schema.sql
     sqlite3 var/portfolio.sqlite3 < sql/data.sql
-    cp sql/uploads/* var/uploads/
+    cp portfolio/static/uploads/* var/uploads/
     ;;
 
   "destroy")
@@ -33,7 +33,7 @@ case $1 in
     mkdir -p var/uploads
     sqlite3 var/portfolio.sqlite3 < sql/schema.sql
     sqlite3 var/portfolio.sqlite3 < sql/data.sql
-    cp sql/uploads/* var/uploads/
+    cp portfolio/static/uploads/* var/uploads/
     ;;
 
   "dump")
