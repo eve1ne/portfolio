@@ -5,14 +5,27 @@
 {% block content %}
 <div class="project-detail">
     <h1>{{ project['title'] }}</h1>
+    <p><em>{{ project['created_at'] }}</em></p>
     <img src="{{ url_for('static', filename='uploads/' ~ project['image_url']) }}" alt="{{ project['title'] }}" class="project-detail-image">
 
     <p>{{ project['description'] }}</p>
     <div class="project-links">
       {% if project['repo_url'] %}<a href="{{ project['repo_url'] }}" target="_blank">View Code</a>{% endif %}
-      {% if project['doc_url'] %}<a href="{{ project['doc_url'] }}" target="_blank">Docs</a>{% endif %}
-      {% if project['demo_url'] %}<a href="{{ project['demo_url'] }}" target="_blank">Demo</a>{% endif %}
+      {% if project['doc_url'] %}
+      <div class="embed-container">
+        <iframe src="{{ url_for('static', filename='uploads/' ~ project['doc_url']) }}"
+                class="doc-embed"
+                allowfullscreen></iframe>
+      </div>
+      {% endif %}
+      {% if project['demo_url'] %}
+      <div class="embed-container">
+        <iframe src="{{ project['demo_url'] }}"
+                class="demo-embed"
+                allowfullscreen></iframe>
+      </div>
+      {% endif %}
+
     </div>
-    <p><em>Created at {{ project['created_at'] }}</em></p>
 </div>
 {% endblock %}
