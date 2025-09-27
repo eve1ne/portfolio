@@ -28,7 +28,7 @@ def show_index():
 
     cur = connection.execute(
     """
-    SELECT artid, title, description, image_url
+    SELECT artid, title, description, image_url1
     FROM artworks
     ORDER BY artid DESC
     """
