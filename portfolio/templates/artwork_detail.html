@@ -7,7 +7,11 @@
     <h1>{{ artwork['title'] }}</h1>
     {% if artwork['medium'] %}<p><strong>Medium:</strong> {{ artwork['medium'] }}</p>{% endif %}
     <img src="{{ url_for('static', filename='uploads/' ~ artwork['image_url1']) }}" alt="{{ artwork['title'] }}" class="project-detail-image">
-    <p>{{ artwork['description'] }}</p>
+
+    {% if artwork['description'] %}
+        <p>{{ artwork['description'].replace('\n', '<br>') | safe }}</p>
+    {% endif %}
+
     <div style="display: flex; flex-wrap: wrap; gap: 10px;">
         {% if artwork['image_url2'] %}
         <img src="{{ url_for('static', filename='uploads/' ~ artwork['image_url2']) }}" alt="{{ artwork['title'] }}" class="project-detail-image-side">
@@ -37,6 +41,5 @@
                 allowfullscreen></iframe>
     </div>
     {% endif %}
-    <p><em>Created at {{ artwork['created_at'] }}</em></p>
 </div>
 {% endblock %}

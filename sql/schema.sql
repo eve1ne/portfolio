@@ -23,6 +23,6 @@ CREATE TABLE artworks (
   video_url1 TEXT,           -- link to animation or video project
   video_url2 TEXT,
   video_url3 TEXT,
-  medium TEXT,              -- e.g., "Digital", "Videography"
+  medium TEXT NOT NULL,              -- e.g., "Digital", "Videography"
   created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );

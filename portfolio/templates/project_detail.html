@@ -8,7 +8,8 @@
     <p><em>{{ project['created_at'] }}</em></p>
     <img src="{{ url_for('static', filename='uploads/' ~ project['image_url']) }}" alt="{{ project['title'] }}" class="project-detail-image">
 
-    <p>{{ project['description'] }}</p>
+    <p>{{ project['description'].replace('\n', '<br>') | safe }}</p>
+
     <div class="project-links">
       {% if project['repo_url'] %}<a href="{{ project['repo_url'] }}" target="_blank">View Code</a>{% endif %}
       {% if project['doc_url'] %}

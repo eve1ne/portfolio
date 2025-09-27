@@ -49,7 +49,9 @@
         <a href="{{ url_for('show_artwork_detail', artid=artwork['artid']) }}" class="project-card">
             <img src="{{ url_for('static', filename='uploads/' ~ artwork['image_url1']) }}" alt="{{ artwork['title'] }}" class="img">
             <h3>{{ artwork['title'] }}</h3>
-            <p>{{ artwork['description']|truncate(100) }}</p>
+            {% if artwork['description'] %}
+                <p>{{ artwork['description']|truncate(100) }}</p>
+            {% endif %}
             <p><strong>Medium:</strong> {{ artwork['medium'] }}</p>
         </a>
         {% endfor %}

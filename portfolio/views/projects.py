@@ -61,7 +61,7 @@ def show_projects():
 
     cur = connection.execute(
     """
-    SELECT artid, title, description, image_url1
+    SELECT artid, title, description, image_url1, medium
     FROM artworks
     ORDER BY artid DESC
     """
