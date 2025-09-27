@@ -173,6 +173,14 @@ a:hover {
   border-radius: 8px;
 }
 
+.project-detail-image-side {
+    flex: 1;
+    max-width: 48%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
 /* Shared container for responsive iframes */
 .embed-container {
   position: relative;
