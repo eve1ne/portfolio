@@ -1,1 +1,97 @@
 {% extends "layout.html" %}
+
+{% block title %}About - Evelyne Lee{% endblock %}
+
+{% block content %}
+<section class="hero">
+    <h1>ABOUT</h1>
+    <p>
+        I’m Evelyne Lee, a Computer Science and Art & Design student at the 
+        University of Michigan (Class of 2026). I have experience in full-stack development, UI/UX 
+        design, and creative media, with a passion for creating accessible digital 
+        experiences that seamlessly integrate design, technology, and human-centered principles.
+    </p>
+    <div class="hero-buttons">
+        <a href="{{ url_for('static', filename='uploads/Evelyne_Lee.pdf') }}" 
+        class="hero-btn" 
+        target="_blank" 
+        rel="noopener noreferrer">
+        Resume
+        </a>
+    </div>
+</section>
+
+<section class="experience">
+    <h2>Technical Experience</h2>
+    <ul>
+        <li><strong>FANUC America – Front-End Developer Intern (2025)</strong></li>
+        <li><strong>University of Michigan – Website Developer/Designer (2023-Present)</strong>  
+            Redesigned College of Engineering departmental websites, improved accessibility, 
+            and integrated usability testing into the development cycle.  
+        </li>
+        <li><strong>Course Projects</strong>
+            Developed a social media web app (Flask, JS, SQL) and a medication management app 
+            (Flutter, Firebase, Figma) with agile teamwork and usability testing.  
+        </li>
+        <li><strong>Relevant Coursework</strong> <br>
+            EECS 497: Human-Centered Software and Design and Development <br>
+            EECS 485: Web Systems <br>
+            EECS 484: Database Management Systems <br>
+            EECS 481: Software Engineering <br>
+            EECS 376: Foundations of Computer Science <br>
+            EECS 370: Computer Organization <br>
+            EECS 281: Data Structures and Algorithms <br>
+            EECS 280: Programming and Data Structures <br>
+            EECS 203: Discrete Mathematics <br>
+            MATH 214: Linear Algebra <br>
+            STATS 250: Statistics and Data Analysis
+        </li>
+    </ul>
+</section>
+
+<section class="creative">
+    <h2>Creative & Media Experience</h2>
+    <ul>
+        <li><strong>ArtsEngine – Media Assistant (2023–Present)</strong>  
+            Produced short films and multimedia projects, overseeing the full production 
+            pipeline from storyboarding to editing.  
+        </li>
+        <li><strong>The Michigan Daily – Illustrator (2022–2023)</strong>  
+            Created digital illustrations for print, web, and social platforms of the 
+            student newspaper.  
+        </li>
+        <li><strong>Empty Mug Records – Head of Production (2022–2024)</strong>  
+            Directed video production for local bands, trained videographers, and led 
+            content creation for a student-run music collective.  
+        </li>
+        <li><strong>Relevant Coursework</strong> <br>
+            ARTDES 100: Observational Drawing <br>
+            ARTDES 125: Studio 4D <br>
+            ARTDES 243: Intro Animation <br>
+            ARTDES 265: Intro to Video: Digital Cinematography & Editing <br>
+            HISTART 272: Modern Art <br>
+            ARTDES 328: Experimental Animation
+        </li>
+    </ul>
+</section>
+
+<section class="leadership">
+    <h2>Leadership</h2>
+    <p>
+        Currently <strong>President of Empty Mug Records</strong>, a non-profit 
+        student-run music collective supporting emerging musicians.
+    </p>
+</section>
+
+<section class="skills">
+    <h2>Skills</h2>
+    <p>
+        <strong>Languages & Frameworks:</strong> Python, C++, JavaScript, SQL, HTML/CSS, Flask, Twig, Tailwind CSS  
+        <br>
+        <strong>Creative Tools:</strong> Adobe Creative Suite (Premiere Pro, After Effects, Photoshop, Illustrator), 
+        Figma, Procreate, Blender  
+        <br>
+        <strong>Other:</strong> Usability testing, accessibility design, video production, bilingual in English and Korean  
+    </p>
+</section>
+{% endblock %}

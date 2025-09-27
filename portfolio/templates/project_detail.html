@@ -11,22 +11,21 @@
     <p>{{ project['description'].replace('\n', '<br>') | safe }}</p>
 
     <div class="project-links">
-      {% if project['repo_url'] %}<a href="{{ project['repo_url'] }}" target="_blank">View Code</a>{% endif %}
-      {% if project['doc_url'] %}
-      <div class="embed-container">
-        <iframe src="{{ url_for('static', filename='uploads/' ~ project['doc_url']) }}"
-                class="doc-embed"
-                allowfullscreen></iframe>
-      </div>
-      {% endif %}
-      {% if project['demo_url'] %}
-      <div class="embed-container">
-        <iframe src="{{ project['demo_url'] }}"
-                class="demo-embed"
-                allowfullscreen></iframe>
-      </div>
-      {% endif %}
-
+        {% if project['repo_url'] %}<a href="{{ project['repo_url'] }}" target="_blank">View Code</a>{% endif %}
+        {% if project['doc_url'] %}
+        <div class="embed-container">
+            <iframe src="{{ url_for('static', filename='uploads/' ~ project['doc_url']) }}"
+                    class="doc-embed"
+                    allowfullscreen></iframe>
+        </div>
+        {% endif %}
+        {% if project['demo_url'] %}
+        <div class="embed-container">
+            <iframe src="{{ project['demo_url'] }}"
+                    class="demo-embed"
+                    allowfullscreen></iframe>
+        </div>
+        {% endif %}
     </div>
 </div>
 {% endblock %}

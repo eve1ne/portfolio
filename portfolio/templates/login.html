@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block title %}Login - Evelyne Lee{% endblock %}
-
+      
 {% block content %}
 <h2>Enter password to view internship project</h2>
 <form method="post">
@@ -10,12 +10,12 @@
 </form>
 
 {% with messages = get_flashed_messages() %}
-  {% if messages %}
-    <ul>
-    {% for msg in messages %}
-      <li>{{ msg }}</li>
-    {% endfor %}
-    </ul>
-  {% endif %}
+    {% if messages %}
+        <ul>
+        {% for msg in messages %}
+            <li>{{ msg }}</li>
+        {% endfor %}
+        </ul>
+    {% endif %}
 {% endwith %}
 {% endblock %}
