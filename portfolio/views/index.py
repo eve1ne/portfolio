@@ -28,7 +28,7 @@ def show_index():
 
     cur = connection.execute(
     """
-    SELECT artid, title, description, image_url1
+    SELECT artid, title, description, image_url1, medium
     FROM artworks
     ORDER BY artid DESC
     """
@@ -42,5 +42,5 @@ def show_index():
         "artworks": artworks
     }
 
-    return flask.render_template("index.html", **context)
+    return flask.render_template("projects.html", **context)
 
