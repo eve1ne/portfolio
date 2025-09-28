@@ -6,19 +6,19 @@ URLs include:
 """
 import flask
 import portfolio
-
 from functools import wraps
+from datetime import datetime, timedelta, timezone
 from flask import session, redirect, url_for, request, render_template, flash
 
 from portfolio.config import INTERNSHIP_PASSWORD
 
-@portfolio.app.route("/login", methods=["GET","POST"])
+
+@portfolio.app.route("/login", methods=["GET", "POST"])
 def login():
-    """Password login."""
     if request.method == "POST":
-        if request.form.get("password") == INTERNSHIP_PASSWORD:  # secure password
+        if request.form.get("password") == INTERNSHIP_PASSWORD:
             session["authorized"] = True
-            # Redirect back to the internship project if desired
+            session["expires_at"] = (datetime.now(timezone.utc) + timedelta(minutes=30)).timestamp()
             return redirect(url_for("show_project_detail", projectid=1))
         flash("Wrong password")
     return render_template("login.html")
@@ -27,6 +27,8 @@ def login():
 @portfolio.app.route("/logout")
 def logout():
     session.pop("authorized", None)
+    session.pop("expires_at", None)
+    flash("You have been logged out.")
     return redirect(url_for("login"))
 
 
@@ -34,10 +36,17 @@ def logout():
 def password_protected(f):
     @wraps(f)
     def decorated(*args, **kwargs):
-        # Check if the project is the internship project
         projectid = kwargs.get("projectid")
         if projectid == 1:
-            if not session.get("authorized"):
+            expires_at = session.get("expires_at")
+            if (
+                not session.get("authorized")
+                or not expires_at
+                or datetime.now(timezone.utc).timestamp() > expires_at
+            ):
+                session.pop("authorized", None)
+                session.pop("expires_at", None)
+                flash("Your session has expired. Please log in again.")
                 return redirect(url_for("login"))
         return f(*args, **kwargs)
     return decorated

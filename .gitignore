@@ -3,6 +3,8 @@
 var/
 tests/
 portfolio/config.py
+portfolio/uploads/private/
+sql/data_private.sql
 
 # Python
 *.pyc

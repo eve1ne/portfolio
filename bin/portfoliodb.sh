@@ -29,11 +29,27 @@ case $1 in
     ;;
 
   "reset")
+    # Remove old database and uploads
     rm -rf var/portfolio.sqlite3 var/uploads
-    mkdir -p var/uploads
+
+    # Recreate folders
+    mkdir -p var/uploads/public
+    mkdir -p var/uploads/private
+
+    # Load schema and public data
     sqlite3 var/portfolio.sqlite3 < sql/schema.sql
-    sqlite3 var/portfolio.sqlite3 < sql/data.sql
-    cp portfolio/static/uploads/* var/uploads/
+    sqlite3 var/portfolio.sqlite3 < sql/data_public.sql
+
+    # Load private data if exists
+    if [ -f sql/data_private.sql ]; then
+        sqlite3 var/portfolio.sqlite3 < sql/data_private.sql
+    fi
+
+    # Copy uploads
+    cp -r portfolio/static/uploads/public/* var/uploads/public/
+    if [ -d portfolio/static/uploads/private ]; then
+        cp -r portfolio/static/uploads/private/* var/uploads/private/
+    fi
     ;;
 
   "dump")
