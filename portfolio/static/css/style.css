@@ -17,7 +17,7 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Layout */
 main {
-    max-width: 800px;
+    max-width: 900px;
     margin: 40px auto;
     padding: 20px;
 }
@@ -239,3 +239,4 @@ a:hover {
   border-bottom-right-radius: 6px;
   transition: max-height 0.2s ease-out;
 }
+
