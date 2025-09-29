@@ -33,20 +33,23 @@
             Developed a social media web app (Flask, JS, SQL) and a medication management app 
             (Flutter, Firebase, Figma) with agile teamwork and usability testing.  
         </li>
-        <li><strong>Relevant Coursework</strong> <br>
-            EECS 497: Human-Centered Software and Design and Development <br>
-            EECS 485: Web Systems <br>
-            EECS 484: Database Management Systems <br>
-            EECS 481: Software Engineering <br>
-            EECS 376: Foundations of Computer Science <br>
-            EECS 370: Computer Organization <br>
-            EECS 281: Data Structures and Algorithms <br>
-            EECS 280: Programming and Data Structures <br>
-            EECS 203: Discrete Mathematics <br>
-            MATH 214: Linear Algebra <br>
-            STATS 250: Statistics and Data Analysis
-        </li>
     </ul>
+    <button class="accordion">Relevant Coursework</button>
+        <div class="panel">
+            <p>
+                EECS 497: Human-Centered Software and Design and Development <br>
+                EECS 485: Web Systems <br>
+                EECS 484: Database Management Systems <br>
+                EECS 481: Software Engineering <br>
+                EECS 376: Foundations of Computer Science <br>
+                EECS 370: Computer Organization <br>
+                EECS 281: Data Structures and Algorithms <br>
+                EECS 280: Programming and Data Structures <br>
+                EECS 203: Discrete Mathematics <br>
+                MATH 214: Linear Algebra <br>
+                STATS 250: Statistics and Data Analysis
+            </p>
+        </div>
 </section>
 
 <section class="creative">
@@ -64,15 +67,18 @@
             Directed video production for local bands, trained videographers, and led 
             content creation for a student-run music collective.  
         </li>
-        <li><strong>Relevant Coursework</strong> <br>
-            ARTDES 100: Observational Drawing <br>
-            ARTDES 125: Studio 4D <br>
-            ARTDES 243: Intro Animation <br>
-            ARTDES 265: Intro to Video: Digital Cinematography & Editing <br>
-            HISTART 272: Modern Art <br>
-            ARTDES 328: Experimental Animation
-        </li>
     </ul>
+    <button class="accordion">Relevant Coursework</button>
+        <div class="panel">
+            <p>
+                ARTDES 328: Experimental Animation <br>
+                HISTART 272: Modern Art <br>
+                ARTDES 265: Intro to Video: Digital Cinematography & Editing <br>
+                ARTDES 243: Intro Animation <br>
+                ARTDES 125: Studio 4D <br>
+                ARTDES 100: Observational Drawing
+            </p>
+        </div>
 </section>
 
 <section class="leadership">
@@ -94,4 +100,22 @@
         <strong>Other:</strong> Usability testing, accessibility design, video production, bilingual in English and Korean  
     </p>
 </section>
+
+<script>
+    var acc = document.getElementsByClassName("accordion");
+    var i;
+
+    for (i = 0; i < acc.length; i++) {
+    acc[i].addEventListener("click", function() {
+        this.classList.toggle("active");
+        var panel = this.nextElementSibling;
+        if (panel.style.maxHeight) {
+        panel.style.maxHeight = null;
+        } else {
+        panel.style.maxHeight = panel.scrollHeight + "px";
+        }
+    });
+    }
+</script>
+
 {% endblock %}

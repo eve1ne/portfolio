@@ -213,4 +213,29 @@ a:hover {
   height: 0;
 }
 
+.accordion {
+  background-color: #d6d6ec;
+  color: #070F2B;
+  cursor: pointer;
+  padding: 16px;
+  width: 100%;
+  text-align: left;
+  border: none;
+  border-radius: 6px;
+  outline: none;
+  transition: 0.4s;
+}
 
+.active, .accordion:hover {
+  background-color: #a8afd3;
+}
+
+.panel {
+  max-height: 0;
+  overflow: hidden;
+  background-color: #f7f7fd;
+  padding-left: 25px;
+  border-bottom-left-radius: 6px;
+  border-bottom-right-radius: 6px;
+  transition: max-height 0.2s ease-out;
+}
