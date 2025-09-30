@@ -17,7 +17,6 @@ app.config['FLASK_ENV'] = os.getenv('FLASK_ENV', 'production')
 app.config['DATABASE_FILENAME'] = os.getenv('DATABASE_FILENAME', 'var/portfolio.sqlite3')
 
 
-app.config.from_envvar('PORTFOLIO_SETTINGS', silent=True)
 
 import portfolio.views  # noqa: E402  pylint: disable=wrong-import-position
 import portfolio.model  # noqa: E402  pylint: disable=wrong-import-position
