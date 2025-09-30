@@ -3,8 +3,9 @@ import flask
 from dotenv import load_dotenv
 import os
 
-# Load .env file in the project root
-load_dotenv(os.path.join(os.path.dirname(__file__), '.env'))
+# project root: /srv/portfolio
+basedir = os.path.abspath(os.path.dirname(__file__))
+load_dotenv(os.path.join(basedir, '..', 'var', '.env'))
 
 # app is a single object used by all the code modules in this package
 app = flask.Flask(__name__)  # pylint: disable=invalid-name
