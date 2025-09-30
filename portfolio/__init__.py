@@ -1,24 +1,20 @@
 """portfolio package initializer."""
 import flask
+from dotenv import load_dotenv
+import os
+
+# Load .env file in the project root
+load_dotenv(os.path.join(os.path.dirname(__file__), '.env'))
 
 # app is a single object used by all the code modules in this package
 app = flask.Flask(__name__)  # pylint: disable=invalid-name
 
-# Read settings from config module (portfolio/config.py)
-app.config.from_object('portfolio.config')
+# Load config values from environment variables (from .env)
+app.config['INTERNSHIP_PASSWORD'] = os.getenv('INTERNSHIP_PASSWORD')
+app.config['SECRET_KEY'] = os.getenv('SECRET_KEY')
+app.config['FLASK_ENV'] = os.getenv('FLASK_ENV', 'production')
 
-# Overlay settings read from a Python file whose path is set in the environment
-# variable PORTFOLIO_SETTINGS. Setting this environment variable is optional.
-# Docs: http://flask.pocoo.org/docs/latest/config/
-#
-# EXAMPLE:
-# $ export PORTFOLIO_SETTINGS=secret_key_config.py
 app.config.from_envvar('PORTFOLIO_SETTINGS', silent=True)
 
-# Tell our app about views and model.  This is dangerously close to a
-# circular import, which is naughty, but Flask was designed that way.
-# (Reference http://flask.pocoo.org/docs/patterns/packages/)  We're
-# going to tell pylint and pycodestyle to ignore this coding style violation.
 import portfolio.views  # noqa: E402  pylint: disable=wrong-import-position
 import portfolio.model  # noqa: E402  pylint: disable=wrong-import-position
-

@@ -2,7 +2,6 @@
 *.db
 var/
 tests/
-portfolio/config.py
 portfolio/static/uploads/private/
 sql/data_private.sql
 

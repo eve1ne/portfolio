@@ -5,18 +5,19 @@ URLs include:
 /
 """
 import flask
-import portfolio
 from functools import wraps
 from datetime import datetime, timedelta, timezone
 from flask import session, redirect, url_for, request, render_template, flash
 
-from portfolio.config import INTERNSHIP_PASSWORD
+import portfolio
+
 
 
 @portfolio.app.route("/login", methods=["GET", "POST"])
 def login():
+    internship_password = portfolio.app.config['INTERNSHIP_PASSWORD']
     if request.method == "POST":
-        if request.form.get("password") == INTERNSHIP_PASSWORD:
+        if request.form.get("password") == internship_password:
             session["authorized"] = True
             session["expires_at"] = (datetime.now(timezone.utc) + timedelta(minutes=30)).timestamp()
             return redirect(url_for("show_project_detail", projectid=1))
