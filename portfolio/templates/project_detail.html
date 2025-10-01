@@ -14,18 +14,11 @@
         {% if project['repo_url'] %}<a href="{{ project['repo_url'] }}" target="_blank">View Code</a>{% endif %}
         {% if project['doc_url'] %}
         <div class="embed-container">
-            <iframe
-                src="{% if project['doc_url'].startswith('private/') %}
-                        {{ url_for('private_file', filename=project['doc_url'][8:]) }}
-                    {% else %}
-                        {{ url_for('static', filename='uploads/' ~ project['doc_url']) }}
-                    {% endif %}"
-                class="doc-embed"
-                allowfullscreen>
-            </iframe>
+            <iframe src="{{ url_for('static', filename='uploads/' ~ project['doc_url']) }}"
+                    class="doc-embed"
+                    allowfullscreen></iframe>
         </div>
         {% endif %}
-
         {% if project['demo_url'] %}
         <div class="embed-container">
             <iframe src="{{ project['demo_url'] }}"
