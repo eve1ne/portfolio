@@ -4,6 +4,7 @@ portfolio projects view.
 URLs include:
 /
 """
+import os
 import flask
 from functools import wraps
 from datetime import datetime, timedelta, timezone
@@ -11,6 +12,30 @@ from flask import session, redirect, url_for, request, render_template, flash
 
 import portfolio
 
+from flask import send_from_directory, abort
+from werkzeug.utils import safe_join
+
+
+@portfolio.app.route("/private/<path:filename>")
+def private_file(filename):
+    """Serve private files only to logged-in users."""
+    # Check authentication & session expiry
+    expires_at = session.get("expires_at")
+    if not session.get("authorized") or not expires_at or datetime.now(timezone.utc).timestamp() > expires_at:
+        session.pop("authorized", None)
+        session.pop("expires_at", None)
+        flash("You must log in to view this file.")
+        return redirect(url_for("login"))
+
+    private_dir = os.path.abspath(os.path.join(portfolio.app.root_path, "../var/uploads/private"))
+
+    # Ensure the file path is safe
+    safe_path = safe_join(private_dir, filename)
+    if not safe_path or not os.path.isfile(safe_path):
+        abort(404)
+
+    # Serve file (works for images, PDFs, etc.)
+    return send_from_directory(private_dir, filename, as_attachment=False)
 
 
 @portfolio.app.route("/login", methods=["GET", "POST"])
