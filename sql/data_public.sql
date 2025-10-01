@@ -24,7 +24,7 @@ VALUES
         I created a 2D digital animation featuring two robot characters, Blue Robot Roy and Orange Robot Mel. In this short narrative, Roy is introduced as a robot missing their heart. Through expressive animation and visual storytelling, Mel compassionately offers half of their own heart to Roy, restoring what was missing. This animation explores themes of empathy and connection, using vibrant character design and color to convey emotion and the transformative power of kindness.
 
     ', 
-    'public/heart.png', 'public/Roy_The_Robot.png', 'public/Mel_The_Robot.png', 'https://www.youtube.com/embed/yEwKkrvpljQ?si=kpwMHzNNQ2oppPQy', NULL, NULL, '2D Animation/Digital Art'),
+    'public/heart_featured.png', 'public/Roy_The_Robot.png', 'public/Mel_The_Robot.png', 'https://www.youtube.com/embed/yEwKkrvpljQ?si=kpwMHzNNQ2oppPQy', NULL, NULL, '2D Animation/Digital Art'),
     ('Digital Illustration Studies', ' ', 'public/Closet.png', 'public/Skeleton_Study.png', 'public/Hand_Study.png', NULL, NULL, NULL, 'Digital Art'),
     ('Naptime Music Project', 
     '

@@ -47,9 +47,9 @@ case $1 in
 
     # Copy uploads
     cp -r portfolio/static/uploads/public/* var/uploads/public/
-    if [ -d portfolio/static/uploads/private ]; then
-        cp -r portfolio/static/uploads/private/* var/uploads/private/
-    fi
+    # if [ -d portfolio/static/uploads/private ]; then
+        # cp -r portfolio/static/uploads/private/* var/uploads/private/
+    # fi
     ;;
 
   "dump")
