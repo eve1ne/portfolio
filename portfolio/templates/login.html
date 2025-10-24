@@ -3,12 +3,12 @@
 {% block title %}Login - Evelyne Lee{% endblock %}
       
 {% block content %}
+<div class="layout">
 <h2>Enter password to view internship project</h2>
 <form method="post">
     <input type="password" name="password" placeholder="Password">
     <button type="submit">Enter</button>
 </form>
-
 {% with messages = get_flashed_messages() %}
     {% if messages %}
         <ul>
@@ -18,4 +18,5 @@
         </ul>
     {% endif %}
 {% endwith %}
+</div>
 {% endblock %}

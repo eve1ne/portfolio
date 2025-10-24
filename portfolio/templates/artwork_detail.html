@@ -3,6 +3,7 @@
 {% block title %}{{ artwork['title'] }}{% endblock %}
 
 {% block content %}
+<div class="layout">
 <div class="project-detail">
     <h1>{{ artwork['title'] }}</h1>
     {% if artwork['medium'] %}<p><strong>Medium:</strong> {{ artwork['medium'] }}</p>{% endif %}
@@ -41,5 +42,6 @@
                 allowfullscreen></iframe>
     </div>
     {% endif %}
+</div>
 </div>
 {% endblock %}

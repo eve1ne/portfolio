@@ -12,11 +12,14 @@ body {
 h1, h2, h3, h4, h5, h6 {
     font-family: 'Gowun Batang', serif;
     font-weight: 700;
-    color: #070F2B;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 /* Layout */
-main {
+.layout {
     max-width: 900px;
     margin: 40px auto;
     padding: 20px;
@@ -128,13 +131,31 @@ a:hover {
 
 /* Hero section */
 .hero {
+    position: relative;
     text-align: left;
-    margin: 0px 0 120px 0;
+    margin: 0 0 80px 0;
+    padding: 120px 100px;
+    color: #ffffff;
+    background-image: 
+        linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
+        url('/static/uploads/public/background.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 .hero h1 {
     font-size: 4rem;
     margin-bottom: 20px;
+    line-height: 1.2;
+    text-shadow: 2px 2px 10px rgba(0,0,0,0.5);
+}
+
+.hero p {
+    font-size: 1.2rem;
+    max-width: 800px;
+    margin-bottom: 30px;
+    text-shadow: 1px 1px 6px rgba(0,0,0,0.4);
 }
 
 .hero-buttons {
@@ -150,7 +171,7 @@ a:hover {
     color: #ffffff;
     font-weight: bold;
     text-decoration: none;
-    transition: background-color 0.2s;
+    transition: background-color 0.2s, transform 0.2s;
 }
 
 .hero-btn:hover {

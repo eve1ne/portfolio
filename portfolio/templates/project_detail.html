@@ -3,6 +3,7 @@
 {% block title %}{{ project['title'] }}{% endblock %}
 
 {% block content %}
+<div class="layout">
 <div class="project-detail">
     <h1>{{ project['title'] }}</h1>
     <p><em>{{ project['created_at'] }}</em></p>
@@ -27,5 +28,6 @@
         </div>
         {% endif %}
     </div>
+</div>
 </div>
 {% endblock %}
