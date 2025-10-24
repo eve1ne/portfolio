@@ -31,7 +31,7 @@ VALUES
 
         In addition to performing, I lead the visual direction of the project by designing digital artwork, logos, and merchandise that capture our group’s unique identity. This project integrates music, performance, and visual art, showcasing our combined talents both on stage and through our branding.
     ', 
-    'public/Naptime_Logo_1.png', 'public/Naptime_Logo_5.png', 'public/Naptime_Sleepy.png', NULL, NULL, NULL, 'Music/Art'),
+    'public/Naptime_Logo_1.png', 'public/Naptime_Logo_5.png', 'public/Naptime_Sleepy.png', 'https://www.youtube.com/embed/kufuvWYxm-k?si=GIuKeeimdetq1K6m', NULL, NULL, 'Music/Art'),
     ('Cold Brew Music Videos', 
     '
         Cold Brews is a video series produced by Empty Mug Records, a local label and creative collective based in Ann Arbor, Michigan.
@@ -47,7 +47,7 @@ VALUES
 
         These interviews not only showcased the diversity and innovation of student projects, but also demonstrated the vital role of ArtsEngine funding in supporting creative exploration at U-M.
     ', 
-    'public/ArtsEngine-Block-Blue.png', NULL, NULL, 'https://player.vimeo.com/video/1094160226?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479', NULL, NULL, 'Videography/Editing'),
+    'public/ArtsEngine-Block-Blue.png', NULL, NULL, 'https://player.vimeo.com/video/1094160226?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479', 'https://www.youtube.com/embed/xGV3NgH0AiY?si=c-L8NksxZmtPL12H', NULL, 'Videography/Editing'),
     ('Camera E-commerce Website Mockup', 
     '
         I created a Figma mockup of a clean, modern homepage for a camera store featuring an intuitive mega menu, hero banner with strong CTA, three product categories, and four highlighted products. Includes a promo banner, SEO-focused section, and a footer with links, social media, and newsletter signup in order to deliver a seamless shopping experience.
