@@ -25,7 +25,6 @@ VALUES
 
     ', 
     'public/heart_featured.png', 'public/Roy_The_Robot.png', 'public/Mel_The_Robot.png', 'https://www.youtube.com/embed/yEwKkrvpljQ?si=kpwMHzNNQ2oppPQy', NULL, NULL, '2D Animation/Digital Art'),
-    ('Digital Illustration Studies', ' ', 'public/Closet.png', 'public/Skeleton_Study.png', 'public/Hand_Study.png', NULL, NULL, NULL, 'Digital Art'),
     ('Naptime Music Project', 
     '
         Naptime Music Project is an alternative rock band I co-founded at the University of Michigan, where I contribute vocals and electric guitar. Collaborating closely with my bandmates, we write and perform original songs at campus venues and events, emphasizing a strong sense of teamwork and creative exchange. 
@@ -48,4 +47,9 @@ VALUES
 
         These interviews not only showcased the diversity and innovation of student projects, but also demonstrated the vital role of ArtsEngine funding in supporting creative exploration at U-M.
     ', 
-    'public/ArtsEngine-Block-Blue.png', NULL, NULL, 'https://player.vimeo.com/video/1094160226?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479', NULL, NULL, 'Videography/Editing');
+    'public/ArtsEngine-Block-Blue.png', NULL, NULL, 'https://player.vimeo.com/video/1094160226?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479', NULL, NULL, 'Videography/Editing'),
+    ('Camera E-commerce Website Mockup', 
+    '
+        I created a Figma mockup of a clean, modern homepage for a camera store featuring an intuitive mega menu, hero banner with strong CTA, three product categories, and four highlighted products. Includes a promo banner, SEO-focused section, and a footer with links, social media, and newsletter signup in order to deliver a seamless shopping experience.
+    ', 
+    'public/camera_home.jpg', NULL, NULL, 'https://embed.figma.com/proto/5Sb27HOXYiHzKokWWdlBCC/Camera-E-Commerce-Mockup?page-id=0%3A1&node-id=1-2&viewport=932%2C236%2C0.85&scaling=min-zoom&content-scaling=fixed&embed-host=share', NULL, NULL, 'Figma/Design');

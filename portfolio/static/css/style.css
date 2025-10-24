@@ -261,3 +261,23 @@ a:hover {
   transition: max-height 0.2s ease-out;
 }
 
+.text-turtle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 20px 0;
+}
+
+turtle {
+    float: left;
+    padding: 15px;
+}
+
+.turtle1 ul {
+  list-style-type: disc;
+  padding-right: 40px;
+}
+
+.turtle2 {
+  border-radius: 6px;
+}
