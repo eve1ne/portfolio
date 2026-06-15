@@ -5,13 +5,13 @@
     <title>{% block title %}Portfolio{% endblock %}</title>
     <link rel="stylesheet" type="text/css" href="/static/css/style.css"/>
     <link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
-
+    {% block page_styles %}{% endblock %}
 </head>
 <body>
     <header class="header">
         <h1><a href="{{ url_for('show_index') }}">Evelyne Lee</a></h1>
         <nav>
-        <!-- <a class="nav-item" href="{{ url_for('show_projects') }}">Projects</a> -->
+        <a class="nav-item" href="{{ url_for('show_projects') }}">Projects</a>
         <a class="nav-item" href="{{ url_for('show_about') }}">About</a>
         </nav>
     </header>

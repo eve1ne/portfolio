@@ -131,17 +131,14 @@ a:hover {
 
 /* Hero section */
 .hero {
-    position: relative;
-    text-align: left;
-    margin: 0 0 80px 0;
-    padding: 120px 100px;
-    color: #ffffff;
-    background-image: 
-        linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
-        url('/static/uploads/public/background.jpg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+  position: relative;
+  text-align: left;
+  margin: 0 0 80px 0;
+  padding: 120px 100px;
+  color: #ffffff;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 .hero h1 {

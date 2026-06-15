@@ -42,5 +42,5 @@ def show_index():
         "artworks": artworks
     }
 
-    return flask.render_template("projects.html", **context)
+    return flask.render_template("index.html", **context)
 

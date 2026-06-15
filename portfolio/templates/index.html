@@ -1,27 +1,25 @@
 {% extends "layout.html" %}
 
-<h1>Computer Science Projects</h1>
-<ul>
-{% for project in projects %}
-    <li>
-    <h2>{{ project['title'] }}</h2>
-    <p>{{ project['description'] }}</p>
-    {% if project['video_url'] %}
-        <video controls src="{{ project['video_url'] }}"></video>
-    {% endif %}
-    </li>
-{% endfor %}
-</ul>
+{% block page_styles %}
+<style>
+  .hero {
+    background-image: 
+      linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
+      url('/static/uploads/public/background.jpg');
+  }
+</style>
+{% endblock %}
 
-<h1>Art Projects</h1>
-<ul>
-{% for art in artworks %}
-    <li>
-    <h2>{{ art['title'] }}</h2>
-    <p>{{ art['description'] }}</p>
-    <img src="{{ art['image_url1'] }}" alt="{{ art['title'] }}">
-    </li>
-{% endfor %}
-</ul>
+{% block content %}
+<section class="hero">
+  <h1>Evelyne Lee</h1>
+  <p>Software Engineer, UX Engineer, Product Designer, and Animator.
+    <br>
+    I create digital experiences from concept to code, combining design, development, and motion.</p>
+</section>
 
 
+
+
+
+{% endblock %}

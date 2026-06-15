@@ -1,5 +1,15 @@
 {% extends "layout.html" %}
 
+{% block page_styles %}
+<style>
+  .hero {
+    background-image: 
+      linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
+      url('/static/uploads/public/background.jpg');
+  }
+</style>
+{% endblock %}
+
 {% block title %}Projects - Evelyne Lee{% endblock %}
 
 {% block content %}
