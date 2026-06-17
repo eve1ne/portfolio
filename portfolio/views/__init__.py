@@ -1,4 +1,5 @@
 """Views, one for each portfolio page."""
 from portfolio.views.index import show_index
 from portfolio.views.projects import show_projects
-from portfolio.views.about import show_about
+from portfolio.views.contact import show_contact
+from portfolio.views.work import show_frontend, show_ux, show_design, show_animation, show_photo_video

@@ -51,9 +51,63 @@ html {
     text-decoration: none;
     transition: color 0.2s;
 }
-
 .nav-item:hover {
-    color: #9190C2; /* Light Purple */
+    color: #9190C2;
+}
+
+.nav-dropdown {
+    position: relative;
+    display: inline-block;
+    margin: 0 15px;
+}
+
+.nav-dropdown > .nav-item {
+    margin: 0;
+    cursor: default;
+}
+
+.nav-dropdown > .nav-item::after {
+    content: ' ▾';
+    font-size: 0.75rem;
+    transition: transform 0.2s;
+    display: inline-block;
+}
+.nav-dropdown:hover > .nav-item::after {
+    transform: rotate(180deg);
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #ffffff;
+    border: 1px solid #e8e8f0;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(7, 15, 43, 0.08);
+    min-width: 200px;
+    z-index: 100;
+    overflow: hidden;
+    padding-top: 10px;
+}
+
+.dropdown-menu a {
+    display: block;
+    padding: 11px 18px;
+    font-weight: 100;
+    color: #070F2B;
+    text-decoration: none;
+    transition: color 0.2s, background-color 0.2s;
+}
+.dropdown-menu a:hover {
+    color: #9190C2;
+    background-color: #f7f7fc;
+}
+
+/* Show on hover */
+.nav-dropdown:hover .dropdown-menu {
+    display: block;
 }
 
 /* Footer */
@@ -131,28 +185,65 @@ a:hover {
 
 /* Hero section */
 .hero {
-  position: relative;
-  text-align: left;
-  margin: 0 0 80px 0;
-  padding: 120px 100px;
-  color: #ffffff;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 25%;
+    padding: 80px 100px;
+    min-height: 500px;
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.hero-image {
+    width: 400px;
+    object-fit: cover;
+    flex-shrink: 0;
+}
+
+/* Tablet */
+@media (max-width: 900px) {
+    .hero {
+        flex-direction: column;
+        padding: 60px 40px;
+        gap: 30px;
+        text-align: center;
+    }
+
+    .hero-image {
+        width: 200px;
+    }
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+    .hero {
+        padding: 40px 20px;
+    }
+
+    .hero h1 {
+    font-size: 2.5rem;
+    }
+
+    .hero-image {
+        width: 150px;
+    }
 }
 
 .hero h1 {
     font-size: 4rem;
     margin-bottom: 20px;
     line-height: 1.2;
-    text-shadow: 2px 2px 10px rgba(0,0,0,0.5);
+    text-shadow: 2px 2px 10px rgba(0,0,0,0.1);
 }
 
 .hero p {
     font-size: 1.2rem;
     max-width: 800px;
     margin-bottom: 30px;
-    text-shadow: 1px 1px 6px rgba(0,0,0,0.4);
+    text-shadow: 1px 1px 6px rgba(0,0,0,0.1);
 }
 
 .hero-buttons {

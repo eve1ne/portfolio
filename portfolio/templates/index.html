@@ -4,18 +4,29 @@
 <style>
   .hero {
     background-image: 
-      linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
-      url('/static/uploads/public/background.jpg');
+      url('/static/uploads/assets/hero-home.png');
+  }
+  .hero > div > h1 {
+    color: #1B1A54;
+  }
+  .hero > div > p {
+    color: #525C91;
   }
 </style>
 {% endblock %}
 
 {% block content %}
 <section class="hero">
-  <h1>Evelyne Lee</h1>
-  <p>Software Engineer, UX Engineer, Product Designer, and Animator.
-    <br>
-    I create digital experiences from concept to code, combining design, development, and motion.</p>
+    <div>
+        <h1>Evelyne Lee</h1>
+        <p>
+            Software Engineer, UX Engineer, Product Designer, and Animator.
+            <br><br>
+            I create digital experiences from concept to code, <br>
+            combining design, development, and motion.
+        </p>
+    </div>
+    <img src="{{ url_for('static', filename='uploads/assets/headshot.png') }}" alt="Hero Image" class="hero-image">
 </section>
 
 
