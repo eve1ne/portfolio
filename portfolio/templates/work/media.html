@@ -1,0 +1,56 @@
+{% extends "layout.html" %}
+
+{% block page_styles %}
+<style>
+  .hero {
+    background-image: 
+      url('/static/uploads/assets/hero-photovideo.png');
+  }
+  .hero > div > h1 {
+    color: #EDEDF4;
+  }
+  .hero > div > p {
+    color: #EDEDF4;
+  }
+</style>
+{% endblock %}
+
+{% block content %}
+
+  {% set breadcrumbs = [{ "label": "Media", "url": None }] %}
+  {% include "partials/breadcrumb.html" %}
+
+  {% set hero_title   = "Media" %}
+  {% set hero_tagline = section.tagline %}
+  {% include "partials/hero.html" %}
+
+  <div class="layout">
+
+    <!-- Filter between photo and video -->
+    <div class="filter-tabs">
+      <a href="{{ url_for('show_media') }}"
+        class="filter-tab {% if active_filter == 'all' %}filter-tab--active{% endif %}">All</a>
+      <a href="{{ url_for('show_media') }}?filter=video"
+        class="filter-tab {% if active_filter == 'video' %}filter-tab--active{% endif %}">Video</a>
+      <a href="{{ url_for('show_media') }}?filter=photo"
+        class="filter-tab {% if active_filter == 'photo' %}filter-tab--active{% endif %}">Photo</a>
+    </div>
+
+    <div class="projects-grid">
+      {% for project in projects %}
+      <a href="{{ url_for('show_art_project', section=project['type'], projectid=project['projectid']) }}"
+        class="project-card">
+        <img src="{{ url_for('static', filename=project['featured_image']) }}"
+            alt="{{ project['title'] }}">
+        <div class="project-card__body">
+          <h3>{{ project['title'] }}</h3>
+          <p>{{ project['description'] | truncate(100) }}</p>
+          <span class="role-tag">{{ project['type'] | title }}</span>
+        </div>
+      </a>
+      {% endfor %}
+    </div>
+
+  </div>
+
+{% endblock %}

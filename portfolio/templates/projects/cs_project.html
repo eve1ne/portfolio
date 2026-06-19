@@ -1,0 +1,111 @@
+{% extends "layout.html" %}
+{% block title %}{{ project['title'] }} - Evelyne Lee{% endblock %}
+
+{% block content %}
+
+{% set breadcrumbs = [
+  { "label": "Computer Science", "url": url_for('show_cs') },
+  { "label": project['title'],   "url": None }
+] %}
+{% include "partials/breadcrumb.html" %}
+
+<!-- Project hero -->
+<section class="project-hero">
+  <img src="{{ url_for('static', filename=project['featured_image']) }}"
+       alt="{{ project['title'] }}" class="project-hero__image">
+  <div class="project-hero__text">
+    <h1>{{ project['title'] }}</h1>
+    <p class="project-timeline">{{ project['start_date'] }} – {{ project['end_date'] or 'Present' }}</p>
+    <p>{{ project['description'] }}</p>
+
+    <!-- Quick links -->
+    <div class="project-links">
+      {% if project['github_url'] %}
+        <a href="{{ project['github_url'] }}" target="_blank" class="hero-btn">GitHub</a>
+      {% endif %}
+      {% if project['live_url'] %}
+        <a href="{{ project['live_url'] }}"   target="_blank" class="hero-btn">Live Site</a>
+      {% endif %}
+      {% if project['demo_video'] %}
+        <a href="#demo" class="hero-btn">View Demo ↓</a>
+      {% endif %}
+    </div>
+  </div>
+</section>
+
+<!-- Role tabs -->
+{% if roles | length > 1 %}
+<div class="project-tabs">
+  {% for r in roles %}
+  <a href="{{ url_for('show_cs_project', projectid=project['projectid']) }}?tab={{ r['role'] }}"
+     class="project-tab project-tab--{{ r['role'] }} {% if r['role'] == active_tab %}project-tab--active{% endif %}">
+    {{ r['role'] | title }}
+  </a>
+  {% endfor %}
+</div>
+{% endif %}
+
+<!-- Tab content -->
+{% for r in roles %}
+  {% if r['role'] == active_tab and r['role'] in sections %}
+    {% set s = sections[r['role']] %}
+    <div class="tab-content layout">
+
+      <div class="case-section">
+        <h2>Overview</h2>
+        <p>{{ s['overview'] }}</p>
+      </div>
+
+      {% if s['tools'] %}
+      <div class="case-section">
+        <h2>Tools & Technologies</h2>
+        <div class="tools-list">
+          {% for tool in s['tools'].split(',') %}
+            <span class="tool-tag">{{ tool.strip() }}</span>
+          {% endfor %}
+        </div>
+      </div>
+      {% endif %}
+
+      {% if highlights %}
+      <div class="case-section">
+        <h2>Highlights</h2>
+        <ul class="highlights-list">
+          {% for h in highlights %}
+            <li>{{ h['highlight'] }}</li>
+          {% endfor %}
+        </ul>
+      </div>
+      {% endif %}
+
+      {% if s['challenges'] %}
+      <div class="case-section">
+        <h2>Challenges</h2>
+        <p>{{ s['challenges'] }}</p>
+      </div>
+      {% endif %}
+
+      {% if s['outcome'] %}
+      <div class="case-section">
+        <h2>Outcome</h2>
+        <p>{{ s['outcome'] }}</p>
+      </div>
+      {% endif %}
+
+    </div>
+  {% endif %}
+{% endfor %}
+
+<!-- Demo video — shown regardless of active tab -->
+{% if project['demo_video'] %}
+<div class="layout" id="demo">
+  <div class="case-section">
+    <h2>Demo</h2>
+    <div class="video-embed">
+      <iframe src="{{ project['demo_video'] }}" allowfullscreen></iframe>
+    </div>
+  </div>
+</div>
+{% endif %}
+
+{% endblock %}

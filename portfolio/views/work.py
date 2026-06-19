@@ -6,23 +6,98 @@ URLs include:
 """
 import flask
 import portfolio
-import os
-from flask import send_from_directory
 
 
 @portfolio.app.route('/work/cs')
 def show_cs():
-    return flask.render_template("work-fields/cs.html")
+    connection = portfolio.model.get_db()
+    active_filter = flask.request.args.get('filter', 'all')
+
+    if active_filter == 'all':
+        projects = connection.execute(
+        """
+            SELECT p.*, GROUP_CONCAT(DISTINCT pr.role) as roles, MIN(pr.role) as default_role
+            FROM cs_projects p
+            JOIN cs_project_roles pr ON p.projectid = pr.projectid
+            WHERE p.is_visible = 1
+            GROUP BY p.projectid
+            ORDER BY p.display_order
+        """
+        ).fetchall()
+    else:
+        projects = connection.execute(
+        """
+            SELECT p.*, GROUP_CONCAT(DISTINCT pr.role) as roles, ? as default_role
+            FROM cs_projects p
+            JOIN cs_project_roles pr ON p.projectid = pr.projectid
+            WHERE p.is_visible = 1 AND pr.role = ?
+            GROUP BY p.projectid
+            ORDER BY p.display_order
+        """, 
+        (active_filter, active_filter)).fetchall()
+
+    section = connection.execute(
+        "SELECT * FROM work_sections WHERE type = 'cs'"
+    ).fetchone()
+
+    return flask.render_template("work/cs.html", projects=projects, section=section, active_filter=active_filter)
+
 
 @portfolio.app.route('/work/design')
 def show_design():
-    return flask.render_template("work-fields/design.html")
+    connection = portfolio.model.get_db()
+    projects = connection.execute(
+    """
+        SELECT * FROM art_projects
+        WHERE type = 'design' AND is_visible = 1
+        ORDER BY display_order
+    """
+    ).fetchall()
+    section = connection.execute(
+        "SELECT * FROM work_sections WHERE type = 'design'"
+    ).fetchone()
+    return flask.render_template("work/design.html", projects=projects, section=section)
+
 
 @portfolio.app.route('/work/animation')
 def show_animation():
-    return flask.render_template("work-fields/animation.html")
+    connection = portfolio.model.get_db()
+    projects = connection.execute(
+    """
+        SELECT * FROM art_projects
+        WHERE type = 'animation' AND is_visible = 1
+        ORDER BY display_order
+    """
+    ).fetchall()
+    section = connection.execute(
+        "SELECT * FROM work_sections WHERE type = 'animation'"
+    ).fetchone()
+    return flask.render_template("work/animation.html", projects=projects, section=section)
+
 
 @portfolio.app.route('/work/media')
 def show_media():
-    return flask.render_template("work-fields/media.html")
+    connection = portfolio.model.get_db()
+    active_filter = flask.request.args.get('filter', 'all')
 
+    if active_filter == 'all':
+        projects = connection.execute(
+        """
+            SELECT * FROM art_projects
+            WHERE type IN ('video', 'photo') AND is_visible = 1
+            ORDER BY display_order
+        """
+        ).fetchall()
+    else:
+        projects = connection.execute(
+        """
+            SELECT * FROM art_projects
+            WHERE type = ? AND is_visible = 1
+            ORDER BY display_order
+        """, 
+        (active_filter,)).fetchall()
+
+    section = connection.execute(
+        "SELECT * FROM work_sections WHERE type = 'media'"
+    ).fetchone()
+    return flask.render_template("work/media.html", projects=projects, section=section, active_filter=active_filter)

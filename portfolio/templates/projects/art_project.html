@@ -1,0 +1,84 @@
+{% extends "layout.html" %}
+{% block title %}{{ project['title'] }} - Evelyne Lee{% endblock %}
+
+{% block content %}
+
+{% set section_urls = {
+  'design':    url_for('show_design'),
+  'animation': url_for('show_animation'),
+  'video':     url_for('show_media'),
+  'photo':     url_for('show_media')
+} %}
+
+{% set section_labels = {
+  'design':    'Product Design',
+  'animation': 'Animation',
+  'video':     'Media',
+  'photo':     'Media'
+} %}
+
+{% set breadcrumbs = [
+  { "label": section_labels[project['type']], "url": section_urls[project['type']] },
+  { "label": project['title'], "url": None }
+] %}
+{% include "partials/breadcrumb.html" %}
+
+<!-- Project hero -->
+<section class="project-hero">
+  <img src="{{ url_for('static', filename=project['featured_image']) }}"
+       alt="{{ project['title'] }}" class="project-hero__image">
+  <div class="project-hero__text">
+    <h1>{{ project['title'] }}</h1>
+    <p class="project-timeline">{{ project['start_date'] }}{% if project['end_date'] %} – {{ project['end_date'] }}{% endif %}</p>
+    <p>{{ project['description'] }}</p>
+  </div>
+</section>
+
+<div class="layout">
+
+  <!-- Figma embed for design projects -->
+  {% if project['figma_url'] %}
+  <div class="case-section">
+    <h2>Interactive Prototype</h2>
+    <div class="figma-embed">
+      <iframe src="{{ project['figma_url'] }}" allowfullscreen></iframe>
+    </div>
+  </div>
+  {% endif %}
+
+  <!-- Video embed for video/animation projects -->
+  {% if project['video_url'] %}
+  <div class="case-section">
+    <h2>{{ 'Watch' if project['type'] == 'video' else 'Animation' }}</h2>
+    <div class="video-embed">
+      <iframe src="{{ project['video_url'] }}" allowfullscreen></iframe>
+    </div>
+  </div>
+  {% endif %}
+
+  <!-- Media gallery (images) -->
+  {% if media %}
+  <div class="case-section">
+    <h2>{{ 'Gallery' if project['type'] == 'photo' else 'Process' }}</h2>
+    <div class="media-gallery">
+      {% for item in media %}
+        {% if item['media_type'] == 'image' %}
+        <figure class="gallery-item">
+          <img src="{{ url_for('static', filename=item['url']) }}" alt="{{ item['caption'] }}">
+          {% if item['caption'] %}
+            <figcaption>{{ item['caption'] }}</figcaption>
+          {% endif %}
+        </figure>
+        {% elif item['media_type'] == 'video' %}
+        <div class="video-embed">
+          <iframe src="{{ item['url'] }}" allowfullscreen></iframe>
+        </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+  {% endif %}
+
+</div>
+
+{% endblock %}

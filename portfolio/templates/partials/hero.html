@@ -1,0 +1,15 @@
+<section class="hero">
+  <div>
+    <h1>{{ hero_title }}</h1>
+    {% if hero_tagline %}
+      <p>{{ hero_tagline }}</p>
+    {% endif %}
+    {% if hero_buttons %}
+      <div class="hero-buttons">
+        {% for btn in hero_buttons %}
+          <a href="{{ btn.url }}" class="hero-btn">{{ btn.label }}</a>
+        {% endfor %}
+      </div>
+    {% endif %}
+  </div>
+</section>
