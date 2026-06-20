@@ -2,10 +2,10 @@
 -- WORK SECTIONS
 -- ============================================================
 INSERT INTO work_sections (type, title, hero_image, tagline) VALUES
-  ('cs',        'Computer Science',  'assets/hero-ux.png',         'Building things that work.'),
-  ('design',    'Product Design',    'assets/hero-design.png',     'Designing things that feel right.'),
-  ('animation', 'Animation',         'assets/hero-animation.png',  'Bringing ideas to life.'),
-  ('media',     'Media',             'assets/hero-photovideo.png', 'Capturing moments.');
+  ('cs',        'Computer Science',  'assets/hero-ux.png',         NULL),
+  ('design',    'Product Design',    'assets/hero-design.png',     'Designing thoughtful digital experiencesthrough research, strategy,and iterative problem solving.'),
+  ('animation', 'Animation',         'assets/hero-animation.png',  'Creating engaging storiesthrough motion, illustration,and visual communication.'),
+  ('media',     'Media',             'assets/hero-photovideo.png', NULL);
 
 -- ============================================================
 -- SKILLS (sectionid matches insert order above: cs=1, design=2, etc.)
