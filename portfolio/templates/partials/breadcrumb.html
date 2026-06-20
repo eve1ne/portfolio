@@ -1,3 +1,18 @@
+{% block page_styles %}
+<style>
+    .breadcrumb {
+        font-size: 16px;
+        margin: 5px 20px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+    .breadcrumb-current {
+        color: #9190C2;
+    }
+</style>
+{% endblock %}
+
 <nav class="breadcrumb">
   <a href="{{ url_for('show_index') }}">Home</a>
   {% for crumb in breadcrumbs %}

@@ -12,6 +12,12 @@
   .hero > div > p {
     color: #EDEDF4;
   }
+  .filter-tabs > a {
+    background-color: #50727B;
+  }
+  .filter-tabs > a.filter-tab--active {
+    color: #50727B;
+  }
 </style>
 {% endblock %}
 
@@ -23,6 +29,8 @@
   {% set hero_title   = "Computer Science" %}
   {% set hero_tagline = section.tagline %}
   {% include "partials/hero.html" %}
+
+  
 
   <!-- Filter tabs -->
   <div class="layout">

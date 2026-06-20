@@ -369,3 +369,18 @@ turtle {
 .turtle2 {
   border-radius: 6px;
 }
+
+/* Filter Tabs within work sections */
+.filter-tabs {
+    display: flex;
+    gap: 5px;
+    margin-bottom: 20px;
+}
+.filter-tabs > a {
+    border-radius: 25px;
+    color: #EDEDF4;
+    padding: 2px 15px;
+}
+.filter-tabs > a.filter-tab--active {
+    background-color: #EDEDF4;
+}
