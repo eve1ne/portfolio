@@ -1,4 +1,87 @@
 {% extends "layout.html" %}
+
+{% block page_styles %}
+<style>
+  .project-hero {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    margin-bottom: 4rem;
+    max-width: 900px;
+    margin: 40px auto;
+  }
+  .project-hero__image {
+    max-width: 75%;
+    border-radius: 8px;
+    display: center;
+    margin: 0 auto;
+    margin-bottom: 2rem;
+  }
+  .project-hero__text {
+    display: flex;
+    flex-direction: column;
+  }
+  .project-timeline {
+    font-size: 16px;
+    color: #666;
+    margin-top: 0.2rem;
+    margin-bottom: 2rem;
+  }
+  .description {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    align-items: center;
+    gap: 2rem;
+    margin-bottom: 2rem;
+  }
+  .description p {
+    max-width: 60%;
+    margin: 0;
+  }
+  .project-tab {
+    padding: 10px 20px;
+    text-decoration: none;
+    font-weight: 100;
+    border-bottom: 3px solid transparent;
+    margin-bottom: -1px;
+    transition: color 0.2s, background-color 0.2s, border-color 0.2s;
+    border-radius: 6px 6px 0 0;
+  }
+  .tab-content {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    max-width: 860px;
+    margin: -3.12rem auto 4rem auto;
+    background-color: #f9f9f9;
+    border-radius: 0 8px 8px 8px;
+  }
+
+  /* Tab colors */
+  .project-tab--frontend { border-color: #96B2A8; color: #96B2A8; }
+  .project-tab--backend  { border-color: #5D8374; color: #5D8374; }
+  .project-tab--design   { border-color: #344A56; color: #344A56; }
+
+  .project-tab--frontend.project-tab--active {
+    background-color: #96B2A8;
+    color: #ffffff;
+  }
+  .project-tab--backend.project-tab--active {
+    background-color: #5D8374;
+    color: #ffffff;
+  }
+  .project-tab--design.project-tab--active {
+    background-color: #344A56;
+    color: #ffffff;
+  }
+
+  .tab-content--frontend { background-color: #eef4f2; }
+  .tab-content--backend  { background-color: #e4eeeb; }
+  .tab-content--design   { background-color: #e2e8eb; }
+</style>
+{% endblock %}
+
 {% block title %}{{ project['title'] }} - Evelyne Lee{% endblock %}
 
 {% block content %}
@@ -11,31 +94,32 @@
 
 <!-- Project hero -->
 <section class="project-hero">
-  <img src="{{ url_for('static', filename=project['featured_image']) }}"
-       alt="{{ project['title'] }}" class="project-hero__image">
   <div class="project-hero__text">
     <h1>{{ project['title'] }}</h1>
     <p class="project-timeline">{{ project['start_date'] }} – {{ project['end_date'] or 'Present' }}</p>
-    <p>{{ project['description'] }}</p>
-
-    <!-- Quick links -->
-    <div class="project-links">
-      {% if project['github_url'] %}
-        <a href="{{ project['github_url'] }}" target="_blank" class="hero-btn">GitHub</a>
-      {% endif %}
-      {% if project['live_url'] %}
-        <a href="{{ project['live_url'] }}"   target="_blank" class="hero-btn">Live Site</a>
-      {% endif %}
-      {% if project['demo_video'] %}
-        <a href="#demo" class="hero-btn">View Demo ↓</a>
-      {% endif %}
+    <img src="{{ url_for('static', filename=project['featured_image']) }}"
+       alt="{{ project['title'] }}" class="project-hero__image">
+    <div class="description">
+      <p>{{ project['description'] }}</p>
+      <!-- Quick links -->
+      <div class="project-links">
+        {% if project['github_url'] %}
+          <a href="{{ project['github_url'] }}" target="_blank" class="hero-btn">GitHub</a>
+        {% endif %}
+        {% if project['live_url'] %}
+          <a href="{{ project['live_url'] }}"   target="_blank" class="hero-btn">Live Site</a>
+        {% endif %}
+        {% if project['demo_video'] %}
+          <a href="#demo" class="hero-btn">View Demo ↓</a>
+        {% endif %}
+      </div>
     </div>
   </div>
 </section>
 
 <!-- Role tabs -->
 {% if roles | length > 1 %}
-<div class="project-tabs">
+<div class="project-tabs layout">
   {% for r in roles %}
   <a href="{{ url_for('show_cs_project', projectid=project['projectid']) }}?tab={{ r['role'] }}"
      class="project-tab project-tab--{{ r['role'] }} {% if r['role'] == active_tab %}project-tab--active{% endif %}">
@@ -49,7 +133,7 @@
 {% for r in roles %}
   {% if r['role'] == active_tab and r['role'] in sections %}
     {% set s = sections[r['role']] %}
-    <div class="tab-content layout">
+    <div class="tab-content layout tab-content--{{ active_tab }}">
 
       <div class="case-section">
         <h2>Overview</h2>
@@ -96,7 +180,6 @@
   {% endif %}
 {% endfor %}
 
-<!-- Demo video — shown regardless of active tab -->
 {% if project['demo_video'] %}
 <div class="layout" id="demo">
   <div class="case-section">
@@ -107,5 +190,30 @@
   </div>
 </div>
 {% endif %}
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    if (window.location.search.includes('tab=')) {
+      const tabs = document.querySelector('.project-tabs');
+      if (tabs) {
+        tabs.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }
+
+    document.querySelectorAll('.project-tab').forEach(function (tab) {
+      tab.addEventListener('click', function () {
+        sessionStorage.setItem('scrollToTabs', 'true');
+      });
+    });
+
+    if (sessionStorage.getItem('scrollToTabs') === 'true') {
+      sessionStorage.removeItem('scrollToTabs');
+      const tabs = document.querySelector('.project-tabs');
+      if (tabs) {
+        tabs.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }
+  });
+</script>
 
 {% endblock %}
