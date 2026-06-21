@@ -18,6 +18,11 @@
   .filter-tabs > a.filter-tab--active {
     color: #525C91;
   }
+  .skill-tag {
+    background-color: #525C91;
+    color: #EDEDF4;
+    border: 1px solid #3c446b;
+  }
 </style>
 {% endblock %}
 
@@ -31,7 +36,7 @@
   {% include "partials/hero.html" %}
 
   <div class="layout">
-
+    <h1>Featured Projects</h1>
     <!-- Filter between photo and video -->
     <div class="filter-tabs">
       <a href="{{ url_for('show_media') }}"
@@ -56,7 +61,14 @@
       </a>
       {% endfor %}
     </div>
-
+    <h1>Skills</h1>
+    {% if skills %}
+    <div class="skills-list">
+      {% for s in skills %}
+        <span class="skill-tag">{{ s['skill'] }}</span>
+      {% endfor %}
+    </div>
+    {% endif %}
   </div>
 
 {% endblock %}

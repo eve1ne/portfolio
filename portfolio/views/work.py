@@ -13,6 +13,18 @@ def show_cs():
     connection = portfolio.model.get_db()
     active_filter = flask.request.args.get('filter', 'all')
 
+    section = connection.execute(
+        "SELECT * FROM work_sections WHERE type = 'cs'"
+    ).fetchone()
+
+    skills = connection.execute(
+        """
+        SELECT skill FROM section_skills
+        WHERE sectionid = ?
+        ORDER BY skillid
+        """, (section['sectionid'],)
+    ).fetchall()
+
     if active_filter == 'all':
         projects = connection.execute(
         """
@@ -40,12 +52,25 @@ def show_cs():
         "SELECT * FROM work_sections WHERE type = 'cs'"
     ).fetchone()
 
-    return flask.render_template("work/cs.html", projects=projects, section=section, active_filter=active_filter)
+    return flask.render_template("work/cs.html", projects=projects, section=section, skills=skills, active_filter=active_filter)
 
 
 @portfolio.app.route('/work/design')
 def show_design():
     connection = portfolio.model.get_db()
+
+    section = connection.execute(
+        "SELECT * FROM work_sections WHERE type = 'design'"
+    ).fetchone()
+
+    skills = connection.execute(
+        """
+        SELECT skill FROM section_skills
+        WHERE sectionid = ?
+        ORDER BY skillid
+        """, (section['sectionid'],)
+    ).fetchall()
+
     projects = connection.execute(
     """
         SELECT * FROM art_projects
@@ -56,12 +81,25 @@ def show_design():
     section = connection.execute(
         "SELECT * FROM work_sections WHERE type = 'design'"
     ).fetchone()
-    return flask.render_template("work/design.html", projects=projects, section=section)
+    return flask.render_template("work/design.html", projects=projects, section=section, skills=skills)
 
 
 @portfolio.app.route('/work/animation')
 def show_animation():
     connection = portfolio.model.get_db()
+
+    section = connection.execute(
+        "SELECT * FROM work_sections WHERE type = 'animation'"
+    ).fetchone()
+
+    skills = connection.execute(
+        """
+        SELECT skill FROM section_skills
+        WHERE sectionid = ?
+        ORDER BY skillid
+        """, (section['sectionid'],)
+    ).fetchall()
+
     projects = connection.execute(
     """
         SELECT * FROM art_projects
@@ -72,13 +110,25 @@ def show_animation():
     section = connection.execute(
         "SELECT * FROM work_sections WHERE type = 'animation'"
     ).fetchone()
-    return flask.render_template("work/animation.html", projects=projects, section=section)
+    return flask.render_template("work/animation.html", projects=projects, section=section, skills=skills)
 
 
 @portfolio.app.route('/work/media')
 def show_media():
     connection = portfolio.model.get_db()
     active_filter = flask.request.args.get('filter', 'all')
+
+    section = connection.execute(
+        "SELECT * FROM work_sections WHERE type = 'media'"
+    ).fetchone()
+
+    skills = connection.execute(
+        """
+        SELECT skill FROM section_skills
+        WHERE sectionid = ?
+        ORDER BY skillid
+        """, (section['sectionid'],)
+    ).fetchall()
 
     if active_filter == 'all':
         projects = connection.execute(
@@ -100,4 +150,4 @@ def show_media():
     section = connection.execute(
         "SELECT * FROM work_sections WHERE type = 'media'"
     ).fetchone()
-    return flask.render_template("work/media.html", projects=projects, section=section, active_filter=active_filter)
+    return flask.render_template("work/media.html", projects=projects, section=section, skills=skills, active_filter=active_filter)

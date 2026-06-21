@@ -18,6 +18,11 @@
   .filter-tabs > a.filter-tab--active {
     color: #50727B;
   }
+  .skill-tag {
+    background-color: #50727B;
+    color: #EDEDF4;
+    border: 1px solid #344A56;
+  }
 </style>
 {% endblock %}
 
@@ -30,10 +35,9 @@
   {% set hero_tagline = section.tagline %}
   {% include "partials/hero.html" %}
 
-  
-
   <!-- Filter tabs -->
   <div class="layout">
+    <h1>Featured Projects</h1>
     <div class="filter-tabs">
       <a href="{{ url_for('show_cs') }}"
         class="filter-tab {% if active_filter == 'all' %}filter-tab--active{% endif %}">
@@ -72,6 +76,15 @@
       </a>
       {% endfor %}
     </div>
+
+    <h1>Skills</h1>
+    {% if skills %}
+    <div class="skills-list">
+      {% for s in skills %}
+        <span class="skill-tag">{{ s['skill'] }}</span>
+      {% endfor %}
+    </div>
+    {% endif %}
   </div>
 
 {% endblock %}

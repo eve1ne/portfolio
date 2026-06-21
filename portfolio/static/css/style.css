@@ -384,3 +384,20 @@ turtle {
 .filter-tabs > a.filter-tab--active {
     background-color: #EDEDF4;
 }
+
+.skill-tag {
+    background-color: #50727B;
+    color: #EDEDF4;
+    padding: 2px 10px;
+    border-radius: 25px;
+    margin: 2px;
+    display: inline-block;
+    border: 1px solid #344A56;
+}
+.skills-list {
+    margin-top: 20px;
+    max-width: 600px;
+    gap: 10px;
+    display: flex;
+    flex-wrap: wrap;
+}

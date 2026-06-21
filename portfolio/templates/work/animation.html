@@ -12,6 +12,11 @@
   .hero > div > p {
     color: #EDEDF4;
   }
+  .skill-tag {
+    background-color: #34384A;
+    color: #EDEDF4;
+    border: 1px solid rgb(33, 47, 55);
+  }
 </style>
 {% endblock %}
 
@@ -25,6 +30,7 @@
   {% include "partials/hero.html" %}
 
   <div class="layout">
+    <h1>Featured Projects</h1>
     <div class="projects-grid">
       {% for project in projects %}
       <a href="{{ url_for('show_art_project', section=project['type'], projectid=project['projectid']) }}"
@@ -38,6 +44,14 @@
       </a>
       {% endfor %}
     </div>
+    <h1>Skills</h1>
+    {% if skills %}
+    <div class="skills-list">
+      {% for s in skills %}
+        <span class="skill-tag">{{ s['skill'] }}</span>
+      {% endfor %}
+    </div>
+    {% endif %}
   </div>
 
 {% endblock %}
