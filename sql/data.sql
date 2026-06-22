@@ -72,29 +72,32 @@ INSERT INTO cs_project_roles (projectid, role, display_order) VALUES
 -- ============================================================
 
 -- MedChecker frontend
-INSERT INTO cs_project_sections (projectid, role, overview, challenges, outcome, tools) VALUES
+INSERT INTO cs_project_sections (projectid, role, overview, challenges, outcome, tools, app_image) VALUES
   (1, 'frontend',
    'MedChecker is a mobile application designed to help parents safely administer medication to children under six years old. As part of a multidisciplinary team, I contributed to the frontend experience by helping design an intuitive interface that allows caregivers to quickly access dosage guidance, medication information, and safety warnings. The goal was to reduce confusion caused by unclear medication labels and make critical health information easier to understand.',
    'Designing for healthcare-related information required balancing simplicity with accuracy. Parents often need answers quickly, so we focused on reducing cognitive load while presenting important dosage and safety details. Through iterative design reviews and usability testing, we refined navigation, information hierarchy, and task flows to ensure users could efficiently find the information they needed.',
    'The final prototype successfully demonstrated a streamlined medication guidance experience tailored to caregivers. By prioritizing accessibility, clear communication, and intuitive interactions, the application addressed a common pain point faced by parents when administering medication to young children.',
-   'Flutter, Figma, Firebase, GitHub');
+   'Flutter, Figma, Firebase, GitHub',
+   'uploads/cs/medchecker/497_Logo.png');
 
 -- MedChecker backend
-INSERT INTO cs_project_sections (projectid, role, overview, challenges, outcome, tools) VALUES
+INSERT INTO cs_project_sections (projectid, role, overview, challenges, outcome, tools, app_image) VALUES
   (1, 'backend',
    'MedChecker provides personalized medication guidance through weight-based dosage calculations and medication safety information. The application architecture was designed to support dosage recommendations, medication lookups, safety warnings, and future AI-assisted health features while maintaining a reliable and scalable foundation.',
    'One of the primary technical challenges was designing a system capable of providing accurate pediatric dosage recommendations while accounting for varying child weights and medication requirements. The project also required researching regulatory guidelines and pediatric medication safety standards to ensure recommendations aligned with established healthcare practices.',
    'The resulting system design supports medication information retrieval, dosage calculation logic based on Clark''s Rule, and extensibility for future features such as symptom-based recommendations and barcode scanning. The project provided valuable experience working with healthcare-related requirements, data modeling, and safety-focused application design.',
-   'Firebase, Database Design, Clark''s Rule Dosage Calculations');
+   'Firebase, Clark''s Rule Dosage Calculations',
+   'uploads/cs/medchecker/497_Logo.png');
 
 -- MedChecker design
-INSERT INTO cs_project_sections (projectid, role, overview, challenges, outcome, tools, wireframe_image) VALUES
+INSERT INTO cs_project_sections (projectid, role, overview, challenges, outcome, tools, wireframe_image, persona_image) VALUES
   (1, 'design',
    'I contributed to the UX and product design of MedChecker by helping research user needs, define requirements, and create interface concepts for parents and caregivers. Our team focused on understanding the challenges caregivers face when interpreting medication instructions and identifying opportunities to reduce medication-related errors through thoughtful design.',
    'Healthcare applications require a high degree of trust and clarity. A key challenge was translating complex medication information into a format that felt approachable and easy to understand for users with varying levels of health literacy. We conducted competitor analysis, reviewed pediatric medication safety research, and iterated on interface concepts to improve usability.',
    'The design process resulted in a user-centered prototype that emphasized safety, clarity, and efficiency. Through research-driven design decisions and iterative refinement, we created an experience that helps caregivers make more informed medication decisions while reducing uncertainty and confusion.',
    'Figma, User Research, Competitor Analysis, Usability Testing',
-   'uploads/cs/medchecker/medchecker-wireframes.jpeg');
+   'uploads/cs/medchecker/medchecker-wireframes.jpeg',
+   'uploads/cs/medchecker/medchecker-persona.png');
 
 -- FANUC frontend
 INSERT INTO cs_project_sections (projectid, role, overview, challenges, outcome, tools) VALUES
@@ -106,24 +109,24 @@ INSERT INTO cs_project_sections (projectid, role, overview, challenges, outcome,
 INSERT INTO cs_project_sections (projectid, role, overview, challenges, outcome, tools) VALUES
   (2, 'design',
     NULL, NULL, NULL,
-   'Craft CMS, Information Architecture, UX Design, Content Modeling');
+   'Craft CMS, UX Design, Content Modeling');
 
 -- AI Chef frontend
-INSERT INTO cs_project_sections (projectid, role, overview, challenges, outcome, tools, app_image) VALUES
+INSERT INTO cs_project_sections (projectid, role, overview, challenges, outcome, tools) VALUES
   (3, 'frontend',
    'AI Chef is a React-based web application that generates recipe suggestions from user-provided ingredients using a large language model. Built as part of the Scrimba Learn React curriculum, the project provided hands-on experience working with modern React development patterns, component-based architecture, state management, and API integration.',
    'One of the primary challenges was managing user input and application state while creating a smooth workflow from ingredient collection to recipe generation. The project required coordinating asynchronous API requests, conditionally rendering content based on application state, and ensuring generated recipes were presented in a clear and user-friendly format.',
    'The completed application allows users to enter available ingredients and receive AI-generated recipe recommendations in real time. Through the project, I strengthened my understanding of React hooks, component composition, API consumption, and building interactive user interfaces that incorporate AI-powered functionality.',
-   'React, JavaScript, HuggingFace AI API, HTML, CSS',
-   'uploads/cs/aichef/chef-generated.png');
+   'React, JavaScript, HuggingFace AI API, HTML, CSS');
 
 -- Cat Cards frontend
-INSERT INTO cs_project_sections (projectid, role, overview, challenges, outcome, tools) VALUES
+INSERT INTO cs_project_sections (projectid, role, overview, challenges, outcome, tools, app_image) VALUES
   (4, 'frontend',
    'Cat Cards is a full-stack study platform designed to help students organize course materials and generate AI-powered study resources. I built the frontend using Next.js, React, TypeScript, and Tailwind CSS, creating an interface that allows users to manage folders, upload documents, and navigate study content through a persistent learning workspace.',
    'One challenge was designing the application architecture to support future AI features while maintaining a responsive user experience. To address this, I separated long-running document processing tasks from the user interface using Trigger.dev background jobs and designed reusable frontend components that can support future study workflows.',
    'The project currently supports authentication, folder organization, PDF uploads, and document processing infrastructure. By establishing a scalable foundation early, the platform is prepared for future features such as automatic flashcard generation, AI study guides, concept summaries, and personalized learning recommendations.',
-   'Next.js, React, TypeScript, Tailwind CSS, Supabase, PostgreSQL');
+   'Next.js, React, TypeScript, Tailwind CSS, Supabase, PostgreSQL',
+   'uploads/cs/catcards/catcards-dashboard.png');
 
 -- Cat Cards backend
 INSERT INTO cs_project_sections (projectid, role, overview, challenges, outcome, tools) VALUES
@@ -134,13 +137,14 @@ INSERT INTO cs_project_sections (projectid, role, overview, challenges, outcome,
    'Supabase, PostgreSQL, Trigger.dev, PDF.js');
 
 -- Cat Cards design
-INSERT INTO cs_project_sections (projectid, role, overview, challenges, outcome, tools, figma_url) VALUES
+INSERT INTO cs_project_sections (projectid, role, overview, challenges, outcome, tools, figma_url, app_image) VALUES
   (4, 'design',
    'I designed the user experience and information architecture for Cat Cards, an AI-powered study platform that helps students organize course materials and generate study resources from uploaded documents. The design process focused on creating a workspace where users could manage multiple courses, upload study materials, and eventually interact with AI-generated learning content in a structured and intuitive way.',
    'One of the primary challenges was designing for features that had not yet been fully implemented. I needed to create an interface that supported current functionality such as folder organization, authentication, and document uploads while remaining flexible enough to accommodate future features including flashcard generation, study guides, concept summaries, and personalized learning recommendations. This required careful planning of navigation patterns, content hierarchy, and user workflows to avoid future redesigns.',
    'The resulting design establishes a scalable foundation for an AI-powered learning platform. By prioritizing organization, clarity, and long-term extensibility, Cat Cards provides students with a structured environment for managing educational content while supporting future AI-driven study experiences.',
    'Figma, Information Architecture, Wireframing, User Experience Design',
-   'https://embed.figma.com/design/IbLJJpoZk9B7SVcpr1ynEr/Cat-Cards-Mock-up?node-id=0-1&embed-host=share');
+   'https://embed.figma.com/design/IbLJJpoZk9B7SVcpr1ynEr/Cat-Cards-Mock-up?node-id=0-1&embed-host=share',
+   'uploads/cs/catcards/catcard-home.png');
 
 -- ============================================================
 -- HIGHLIGHTS
@@ -173,10 +177,6 @@ INSERT INTO cs_section_highlights (sectionid, highlight, display_order) VALUES
   (7, 'Built reusable React and TypeScript components to streamline navigation and content management', 2),
   (7, 'Designed responsive user experiences optimized for managing large collections of study materials', 3),
 
-  (7, 'Created a scalable study platform interface that supports document organization and future AI-powered learning workflows', 1),
-  (7, 'Built reusable React and TypeScript components to streamline navigation and content management', 2),
-  (7, 'Designed responsive user experiences optimized for managing large collections of study materials', 3),
-
   (9, 'Designed the platform architecture to support future AI-generated flashcards, study guides, and learning recommendations', 1),
   (9, 'Developed user flows that streamline the process of organizing and interacting with educational content', 2),
   (9, 'Created a flexible design system capable of scaling as new study tools and learning experiences are introduced', 3);
@@ -200,9 +200,9 @@ INSERT INTO art_projects (type, title, start_date, end_date, featured_image, des
    2);
 
 INSERT INTO art_projects (type, title, start_date, end_date, featured_image, description, video_url, display_order) VALUES
-  ('animation', 'Heart Animation',     'Fall 2023', NULL, 'uploads/animation/heart_featured.png',  'I created a 2D digital animation featuring two robot characters, Blue Robot Roy and Orange Robot Mel. In this short narrative, Roy is introduced as a robot missing their heart. Through expressive animation and visual storytelling, Mel compassionately offers half of their own heart to Roy, restoring what was missing. This animation explores themes of empathy and connection, using vibrant character design and color to convey emotion and the transformative power of kindness.', 
+  ('animation', 'Heart Animation',     'Fall 2023', NULL, 'uploads/animation/heart_featured.png',  'A robot gives half of its heart to the shell of another and gives it life.', 
   'https://www.youtube.com/embed/yEwKkrvpljQ?si=Wi1Bw6gRitQo39ow', 1),
-  ('animation', 'Box TV Animation',    'Fall 2024', NULL, 'uploads/animation/Model_Sheet.png',  'I produced a 2D digital animation that tells the story of a box TV struggling with self-worth after comparing itself to a sleek new flat screen TV. Feeling broken and left behind, the box TV finds support when a circle-shaped TV notices its distress and gently helps put its broken pieces back together. Through expressive animation and character design, this short film explores themes of self-acceptance, empathy, and the healing power of kindness.', 
+  ('animation', 'Box TV Animation',    'Fall 2024', NULL, 'uploads/animation/Model_Sheet.png',  'An outdated television feels out of place and finds acceptance.', 
   'https://www.youtube.com/embed/li3ELNgBdf8?si=NTlY5d5_j6-wXvbJ', 2),
   ('animation', 'Ruby Animation',      'January 2023', 'Present', 'uploads/animation/ruby-title-card.jpg',   'A stray cat swept into Puerto Rico’s rough tides awakens in a dreamlike world and must choose between saving an injured companion or saving itself.', 
   NULL, 3),

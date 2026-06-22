@@ -149,18 +149,32 @@
     {% set s = sections[r['role']] %}
     <div class="tab-content layout tab-content--{{ active_tab }}">
 
+      {% if s['app_image'] %}
+      <div class="case-section">
+        <h2>Application</h2>
+        <img src="{{ url_for('static', filename=s['app_image']) }}"
+        alt="Application">
+      </div>
+      {% endif %}
+
       <div class="case-section">
         <h2>Overview</h2>
         <p>{{ s['overview'] }}</p>
       </div>
 
+      {% if s['wireframe_image'] %}
+      <div class="case-section">
+        <h2>Wireframe</h2>
+        <img src="{{ url_for('static', filename=s['wireframe_image']) }}"
+        alt="Wireframe">
+      </div>
+      {% endif %}
+
       {% if s['tools'] %}
       <div class="case-section">
         <h2>Tools & Technologies</h2>
         <div class="tools-list">
-          {% for tool in s['tools'].split(',') %}
-            <span class="tool-tag">{{ tool.strip() }}</span>
-          {% endfor %}
+          <p>{{ s['tools'] }}</p>
         </div>
       </div>
       {% endif %}
@@ -190,10 +204,10 @@
       </div>
       {% endif %}
 
-      {% if s['wireframe_image'] %}
+      {% if s['persona_image'] %}
       <div class="case-section">
-        <h2>Wireframe</h2>
-        <img src="{{ url_for('static', filename=s['wireframe_image']) }}"
+        <h2>Persona</h2>
+        <img src="{{ url_for('static', filename=s['persona_image']) }}"
         alt="Wireframe">
       </div>
       {% endif %}
@@ -203,14 +217,6 @@
         <h2>Figma</h2>
         <iframe style="border: 1px solid rgba(0, 0, 0, 0.1);"
         src="{{ s['figma_url'] }}" allowfullscreen></iframe>
-      </div>
-      {% endif %}
-
-      {% if s['app_image'] %}
-      <div class="case-section">
-        <h2>Application</h2>
-        <img src="{{ url_for('static', filename=s['app_image']) }}"
-        alt="Application">
       </div>
       {% endif %}
 

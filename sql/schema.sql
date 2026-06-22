@@ -48,6 +48,7 @@ CREATE TABLE cs_project_sections (
   tools TEXT,                -- "React, Flask, SQLite"
   figma_url TEXT,
   wireframe_image TEXT,
+  persona_image TEXT,
   app_image TEXT,
   FOREIGN KEY (projectid) REFERENCES cs_projects(projectid)
 );
