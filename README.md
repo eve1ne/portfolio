@@ -4,7 +4,7 @@ Personal portfolio website showcasing my work across software engineering, UX en
 
 **[evelynelee.com](https://evelynelee.com/)**
 
----
+
 
 ## About
 
@@ -15,7 +15,7 @@ The goal is to show that these disciplines aren't separate. Tthe way I write cod
 
 This site is as much a reflection of who I am as it is a showcase of what I've made.
 
----
+
 
 ## Features
 
@@ -27,7 +27,7 @@ This site is as much a reflection of who I am as it is a showcase of what I've m
 - **Responsive layout** — works across desktop, tablet, and mobile
 - **Deploy workflow** — hosted on DigitalOcean via systemd
 
----
+
 
 ## Work Sections
 
@@ -38,7 +38,7 @@ This site is as much a reflection of who I am as it is a showcase of what I've m
 | **Animation** | Motion work including character animation and trailers |
 | **Media** | Video production and photography |
 
----
+
 
 ## Tech Stack
 
@@ -49,22 +49,4 @@ This site is as much a reflection of who I am as it is a showcase of what I've m
 - **Infrastructure** — DigitalOcean, systemd, Nginx
 - **Version control** — Git / GitHub
 
----
-
-## Project Structure
-portfolio/
-├── bin/                  # Shell scripts (db reset, deploy)
-├── portfolio/
-│   ├── views/            # Flask route handlers
-│   ├── templates/        # Jinja2 templates
-│   │   ├── work/         # Section pages (cs, design, animation, media)
-│   │   ├── projects/     # Individual project templates
-│   │   └── partials/     # Reusable components (breadcrumb, hero, tabs)
-│   └── static/           # CSS, JS, uploaded assets
-├── sql/
-│   ├── schema.sql        # Database schema
-│   └── data.sql          # Seed data
-└── requirements.txt
-
----
 
