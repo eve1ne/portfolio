@@ -401,3 +401,10 @@ turtle {
     display: flex;
     flex-wrap: wrap;
 }
+
+.role-tag {
+    color: #EDEDF4;
+    padding: 4px 8px;
+    border-radius: 25px;
+    font-size: 12px; 
+  }
