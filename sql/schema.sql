@@ -46,6 +46,9 @@ CREATE TABLE cs_project_sections (
   challenges TEXT,
   outcome TEXT,
   tools TEXT,                -- "React, Flask, SQLite"
+  figma_url TEXT,
+  wireframe_image TEXT,
+  app_image TEXT,
   FOREIGN KEY (projectid) REFERENCES cs_projects(projectid)
 );
 

@@ -79,6 +79,20 @@
   .tab-content--frontend { background-color: #eef4f2; }
   .tab-content--backend  { background-color: #e4eeeb; }
   .tab-content--design   { background-color: #e2e8eb; }
+
+  .case-section > img {
+    margin: 0 auto 0 auto;
+    position: relative;
+    width: 100%;
+    max-width: 900px;
+  }
+  .case-section > iframe {
+    margin: auto;
+    position: relative;
+    width: 100%;
+    height: 70vh;
+    max-width: 900px;
+  }
 </style>
 {% endblock %}
 
@@ -176,6 +190,30 @@
       </div>
       {% endif %}
 
+      {% if s['wireframe_image'] %}
+      <div class="case-section">
+        <h2>Wireframe</h2>
+        <img src="{{ url_for('static', filename=s['wireframe_image']) }}"
+        alt="Wireframe">
+      </div>
+      {% endif %}
+
+      {% if s['figma_url'] %}
+      <div class="case-section">
+        <h2>Figma</h2>
+        <iframe style="border: 1px solid rgba(0, 0, 0, 0.1);"
+        src="{{ s['figma_url'] }}" allowfullscreen></iframe>
+      </div>
+      {% endif %}
+
+      {% if s['app_image'] %}
+      <div class="case-section">
+        <h2>Application</h2>
+        <img src="{{ url_for('static', filename=s['app_image']) }}"
+        alt="Application">
+      </div>
+      {% endif %}
+
     </div>
   {% endif %}
 {% endfor %}
@@ -185,7 +223,11 @@
   <div class="case-section">
     <h2>Demo</h2>
     <div class="video-embed">
-      <iframe src="{{ project['demo_video'] }}" allowfullscreen></iframe>
+      <iframe
+        src="{{ project['demo_video'] }}"
+        title="Demo Video"
+        allowfullscreen>
+      </iframe>
     </div>
   </div>
 </div>

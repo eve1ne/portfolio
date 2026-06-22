@@ -15,6 +15,9 @@ case $1 in
   "create")
     mkdir -p var/uploads/assets
     mkdir -p var/uploads/public
+    mkdir -p var/uploads/cs
+    mkdir -p var/uploads/media
+    mkdir -p var/uploads/animation
     sqlite3 var/portfolio.sqlite3 < sql/schema.sql
     sqlite3 var/portfolio.sqlite3 < sql/data.sql
     cp -r portfolio/static/uploads/* var/uploads/
@@ -29,6 +32,9 @@ case $1 in
 
     mkdir -p var/uploads/assets
     mkdir -p var/uploads/public
+    mkdir -p var/uploads/cs
+    mkdir -p var/uploads/media
+    mkdir -p var/uploads/animation
 
     sqlite3 var/portfolio.sqlite3 < sql/schema.sql
     sqlite3 var/portfolio.sqlite3 < sql/data.sql
