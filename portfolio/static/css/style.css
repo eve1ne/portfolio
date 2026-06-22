@@ -188,7 +188,7 @@ a:hover {
     position: relative;
     display: flex;
     align-items: center;
-    gap: 25%;
+    gap: 15%;
     padding: 80px 100px;
     min-height: 500px;
 
@@ -198,38 +198,10 @@ a:hover {
 }
 
 .hero-image {
-    width: 400px;
+    width: 500px;
     object-fit: cover;
     flex-shrink: 0;
-}
-
-/* Tablet */
-@media (max-width: 900px) {
-    .hero {
-        flex-direction: column;
-        padding: 60px 40px;
-        gap: 30px;
-        text-align: center;
-    }
-
-    .hero-image {
-        width: 200px;
-    }
-}
-
-/* Mobile */
-@media (max-width: 600px) {
-    .hero {
-        padding: 40px 20px;
-    }
-
-    .hero h1 {
-    font-size: 2.5rem;
-    }
-
-    .hero-image {
-        width: 150px;
-    }
+    margin-left: 10%;
 }
 
 .hero h1 {
