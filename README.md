@@ -1,29 +1,70 @@
-# Evelyne Lee – Portfolio
+# Evelyne Lee — Portfolio
 
-This is my personal portfolio website, where I showcase both my technical projects (full-stack development, UI/UX design) and my creative work (art, media, design).
+Personal portfolio website showcasing my work across software engineering, UX engineering, product design, animation, and media production.
 
+**[evelynelee.com](https://evelynelee.com/)**
 
-# Highlights
+---
 
-- A clean, responsive design that makes it easy to explore my projects
+## About
 
-- Sections for both technical work and creative projects
+I'm a creative technologist with a diverse set of skills spanning software engineering, UX design, motion design, and media production. This portfolio is built to reflect that 
+it presents the same projects through different lenses depending on the audience.
 
-- Individual project pages with images, demos, and descriptions
+The goal is to show that these disciplines aren't separate. Tthe way I write code is informed by how I think about design, and the way I approach design is grounded in knowing how it gets built. Animation and media production sit alongside the engineering work not as side projects, but as equally intentional parts of how I communicate and create.
 
-- A password-protected section for sensitive internship work
+This site is as much a reflection of who I am as it is a showcase of what I've made.
 
+---
 
-# Built With
+## Features
 
-- Flask (Python)
+- **Role-based project views** — projects appear across multiple work sections with context-specific descriptions and highlights
+- **Tabbed project pages** — each project page has tabs for Frontend, Backend, and/or Design, with color-coded styling per section
+- **Breadcrumb navigation** — clear path from any work section to individual project
+- **Per-page hero images** — each section has its own hero background
+- **Contact form** — integrated form with email delivery
+- **Responsive layout** — works across desktop, tablet, and mobile
+- **Deploy workflow** — hosted on DigitalOcean via systemd
 
-- HTML, CSS, JavaScript
+---
 
-- SQLite database
+## Work Sections
 
-- Figma for design
+| Section | Content |
+|---|---|
+| **Computer Science** | Frontend, backend, and full-stack projects with technical case studies |
+| **Product Design** | Figma mockups, wireframes, and high-fidelity prototypes |
+| **Animation** | Motion work including character animation and trailers |
+| **Media** | Video production and photography |
 
+---
 
-# Visit My Portfolio:
-https://evelynelee.com/
+## Tech Stack
+
+- **Backend** — Python, Flask
+- **Database** — SQLite
+- **Frontend** — HTML, CSS, JavaScript, Jinja2
+- **Design** — Figma
+- **Infrastructure** — DigitalOcean, systemd, Nginx
+- **Version control** — Git / GitHub
+
+---
+
+## Project Structure
+portfolio/
+├── bin/                  # Shell scripts (db reset, deploy)
+├── portfolio/
+│   ├── views/            # Flask route handlers
+│   ├── templates/        # Jinja2 templates
+│   │   ├── work/         # Section pages (cs, design, animation, media)
+│   │   ├── projects/     # Individual project templates
+│   │   └── partials/     # Reusable components (breadcrumb, hero, tabs)
+│   └── static/           # CSS, JS, uploaded assets
+├── sql/
+│   ├── schema.sql        # Database schema
+│   └── data.sql          # Seed data
+└── requirements.txt
+
+---
+
