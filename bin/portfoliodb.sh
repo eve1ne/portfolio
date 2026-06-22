@@ -29,7 +29,6 @@ case $1 in
 
   "reset")
     rm -rf var/portfolio.sqlite3 var/uploads
-
     mkdir -p var/uploads/assets
     mkdir -p var/uploads/public
     mkdir -p var/uploads/cs
@@ -43,9 +42,13 @@ case $1 in
       sqlite3 var/portfolio.sqlite3 < sql/data_private.sql
     fi
 
-    cp -r portfolio/static/uploads/assets/* var/uploads/assets/
-    cp -r portfolio/static/uploads/public/*  var/uploads/public/
-    ;;
+    # only copy if source folder exists and has content
+    [ -d portfolio/static/uploads/assets ]    && cp -r portfolio/static/uploads/assets/*    var/uploads/assets/
+    [ -d portfolio/static/uploads/public ]    && cp -r portfolio/static/uploads/public/*    var/uploads/public/
+    [ -d portfolio/static/uploads/cs ]        && cp -r portfolio/static/uploads/cs/*        var/uploads/cs/
+    [ -d portfolio/static/uploads/media ]     && cp -r portfolio/static/uploads/media/*     var/uploads/media/
+    [ -d portfolio/static/uploads/animation ] && cp -r portfolio/static/uploads/animation/* var/uploads/animation/
+  ;;
 
   "dump")
     echo "=== work_sections ==="
