@@ -189,37 +189,49 @@ INSERT INTO art_projects (type, title, start_date, end_date, featured_image, des
    'October 2025', 'November 2025',
    'uploads/public/camera_home.jpg',
    'A homepage mockup for a camera e-commerce store designed in Figma.',
-   'https://figma.com/your-link-here',
+   'https://embed.figma.com/design/5Sb27HOXYiHzKokWWdlBCC/Camera-E-Commerce-Mockup?node-id=0-1&embed-host=share',
    1),
 
   ('design', 'ALEA & Co.',
    'January 2025', 'April 2025',
-   'uploads/public/camera_home.jpg',
-   'Full product design case study for a startup brand identity and app.',
-   'https://figma.com/your-link-here',
+   'uploads/cs/ALEA&co/prototype-image.png',
+   'A mobile app that helps students find the best dining options near campus by providing real-time wait times, queue management, occupancy insights, and quick access to restaurant ordering platforms.',
+   'https://embed.figma.com/proto/TA0ckCPBWmDkKGDaLBkg0u/Milestone-3?node-id=1-4&viewport=108%2C226%2C0.41&scaling=scale-down&content-scaling=fixed&starting-point-node-id=1%3A7&show-proto-sidebar=1&page-id=0%3A1&embed-host=share',
    2);
 
-INSERT INTO art_projects (type, title, start_date, end_date, featured_image, description, display_order) VALUES
-  ('animation', 'Heart Animation',     'Fall 2023', NULL, 'uploads/animation/heart_featured.png',  'Placeholder text for project overview.', 1),
-  ('animation', 'Box TV Animation',    'Fall 2024', NULL, 'uploads/animation/Model_Sheet.png',  'Placeholder text for project overview.', 2),
-  ('animation', 'Ruby Animation',      'January 2023', 'Present', 'uploads/animation/Model_Sheet.png',   'Placeholder text for project overview.', 3),
-  ('animation', 'Cat Walk Cycle',      'Fall 2024', NULL, 'uploads/animation/Model_Sheet.png',    'Placeholder text for project overview.', 4),
-  ('animation', 'AAFF Trailer',        'Fall 2025', NULL, 'uploads/animation/Model_Sheet.png',   'Placeholder text for project overview.', 5),
+INSERT INTO art_projects (type, title, start_date, end_date, featured_image, description, video_url, display_order) VALUES
+  ('animation', 'Heart Animation',     'Fall 2023', NULL, 'uploads/animation/heart_featured.png',  'I created a 2D digital animation featuring two robot characters, Blue Robot Roy and Orange Robot Mel. In this short narrative, Roy is introduced as a robot missing their heart. Through expressive animation and visual storytelling, Mel compassionately offers half of their own heart to Roy, restoring what was missing. This animation explores themes of empathy and connection, using vibrant character design and color to convey emotion and the transformative power of kindness.', 
+  'https://www.youtube.com/embed/yEwKkrvpljQ?si=Wi1Bw6gRitQo39ow', 1),
+  ('animation', 'Box TV Animation',    'Fall 2024', NULL, 'uploads/animation/Model_Sheet.png',  'I produced a 2D digital animation that tells the story of a box TV struggling with self-worth after comparing itself to a sleek new flat screen TV. Feeling broken and left behind, the box TV finds support when a circle-shaped TV notices its distress and gently helps put its broken pieces back together. Through expressive animation and character design, this short film explores themes of self-acceptance, empathy, and the healing power of kindness.', 
+  'https://www.youtube.com/embed/li3ELNgBdf8?si=NTlY5d5_j6-wXvbJ', 2),
+  ('animation', 'Ruby Animation',      'January 2023', 'Present', 'uploads/animation/ruby-title-card.jpg',   'A stray cat swept into Puerto Rico’s rough tides awakens in a dreamlike world and must choose between saving an injured companion or saving itself.', 
+  NULL, 3),
+  ('animation', 'AAFF Trailer',        'Fall 2025', NULL, 'uploads/animation/aaff-logo.png',   'An original animated trailer created for the Ann Arbor Film Festival trailer competition. The project combined storytelling, motion design, and animation to celebrate the festival''s creative and experimental approach to independent film.', 
+  'https://www.youtube.com/embed/ECQXab_NFUg?si=2KmM9sw_P8Q8T7Zi', 4),
 
-  ('video', 'ArtsEngine MicroGrant Video 1', 'Fall 2024', NULL, 'uploads/media/ArtsEngine-Block-Blue.png', 'Placeholder text for project overview.', 1),
-  ('video', 'ArtsEngine MicroGrant Video 2', 'Fall 2024', NULL, 'uploads/media/ArtsEngine-Block-Blue.png', 'Placeholder text for project overview.', 2),
-  ('video', 'EMR Cold Brews 1',              'Fall 2023',   NULL, 'uploads/media/ColdBrew_Logo.png',   'Placeholder text for project overview.', 3),
-  ('video', 'EMR Cold Brews 2',              'Fall 2023',   NULL, 'uploads/media/ColdBrew_Logo.png',   'Placeholder text for project overview.', 4),
-  ('video', 'EMR Cold Brews 3',              'Fall 2023',   NULL, 'uploads/media/ColdBrew_Logo.png',   'Placeholder text for project overview.', 5),
-  ('video', 'EMR Live Show',                 'Fall 2023',   NULL, 'uploads/media/ColdBrew_Logo.png','Placeholder text for project overview.', 6),
 
-  ('photo', 'Atlas Digital Club Headshots', 'Fall 2023', NULL, 'uploads/media/ColdBrew_Logo.png',  'Placeholder text for project overview.', 1),
-  ('photo', 'MFPC Club Headshots',          'Fall 2023', NULL, 'uploads/media/ColdBrew_Logo.png',   'Placeholder text for project overview.', 2),
-  ('photo', 'Grad Pics',                    'Spring 2024', NULL, 'uploads/media/ColdBrew_Logo.png', 'Placeholder text for project overview.', 3);
+  ('video', 'ArtsEngine MicroGrant Video', 'Fall 2024', NULL, 'uploads/media/ArtsEngine-Block-Blue.png', 'As part of a video series supported by ArtsEngine microgrant funding, I produced and edited interviews with University of Michigan students engaged in interdisciplinary creative projects. Each video highlighted a different project, focusing on the team’s creative process, the challenges they faced, and the impact of their work.
+    These interviews not only showcased the diversity and innovation of student projects, but also demonstrated the vital role of ArtsEngine funding in supporting creative exploration at U-M.', 'https://www.youtube.com/embed/xGV3NgH0AiY?si=BOCh6bjkL2zCaYAr', 1),
+  ('video', 'EMR Cold Brews',              'Fall 2023',   NULL, 'uploads/media/ColdBrew_Logo.png',   'Cold Brews is a video series produced by Empty Mug Records, a local label and creative collective based in Ann Arbor, Michigan.
+    Cold Brews are inspired by projects like NPR’s Tiny Desk Concerts. In each session, local or student musicians from Ann Arbor are featured performing a selection of songs in a location and with a theme of their choosing. I handle the filming and editing to create high-quality, engaging music videos that showcase each artist’s unique style. The series helps artists gain recognition and gives audiences an inside look at the diverse talent within Ann Arbor’s music scene.', 
+    'https://www.youtube.com/embed/aYm70-VMjYQ?si=Iu1bEbBp0A0hGhxV', 2);
+
+  --('photo', 'Atlas Digital Club Headshots', 'Fall 2023', NULL, 'uploads/media/ColdBrew_Logo.png',  'Placeholder text for project overview.', NULL, 1),
+  --('photo', 'MFPC Club Headshots',          'Fall 2023', NULL, 'uploads/media/ColdBrew_Logo.png',   'Placeholder text for project overview.', NULL, 2),
+  --('photo', 'Grad Pics',                    'Spring 2024', NULL, 'uploads/media/ColdBrew_Logo.png', 'Placeholder text for project overview.', NULL, 3);
 
 -- ============================================================
--- ART MEDIA (add image/video urls per project)
+-- ART MEDIA (add image/video urls per project, PROCESS section)
 -- ============================================================
 INSERT INTO art_project_media (projectid, media_type, url, caption, display_order) VALUES
-  (1, 'image', 'uploads/public/camera_home.jpg', 'Homepage hero section', 1),
-  (1, 'image', 'uploads/public/camera_home.jpg', 'Product listing page',  2);
+  --(1, 'image', 'uploads/public/camera_home.jpg', 'Homepage hero section', 1),
+  --(1, 'image', 'uploads/public/camera_home.jpg', 'Product listing page',  2);
+  (2, 'image', 'uploads/cs/ALEA&co/interation-wireframe.png', 
+    'The goal of this project was to help students make faster and more informed dining decisions between classes by providing information about nearby restaurants, wait times, queue status, popular menu items, and ordering options. We wanted to reduce the uncertainty students often experience when deciding where to eat, especially when they have limited time between commitments.',  1),
+  (2, 'image', 'uploads/cs/ALEA&co/task-list.png', 
+    'Once the initial prototype was completed, we conducted think-aloud usability testing sessions. Participants were asked to complete realistic tasks while verbalizing their thoughts, expectations, and decision-making processes. Observing users interact with the prototype helped us identify areas where the interface did not match their expectations and revealed opportunities for improvement.',  2),
+  (2, 'image', 'uploads/cs/ALEA&co/uft.png', 
+    'Through multiple rounds of testing and refinement, the final prototype evolved into a more intuitive and user-centered experience. Each design decision was informed by direct user feedback, allowing us to improve readability, clarify information architecture, strengthen action discoverability, and create more meaningful interactions. This iterative process reinforced the importance of validating design assumptions through testing and demonstrated how small usability improvements can significantly enhance the overall user experience.',  3),
+  (2, 'video', 'https://www.youtube.com/embed/tG7RIhTYWzE?si=qS-B54kQdOpZMeFi', 
+    NULL,  4);
+

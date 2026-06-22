@@ -256,14 +256,14 @@ a:hover {
     padding: 10px 20px;
     border-radius: 6px;
     background-color: #9190C2;
-    color: #ffffff;
-    font-weight: bold;
+    color: #EDEDF4;
     text-decoration: none;
     transition: background-color 0.2s, transform 0.2s;
 }
 
 .hero-btn:hover {
     background-color: #525C91;
+    color: #EDEDF4;
 }
 
 /* Projects grid */
