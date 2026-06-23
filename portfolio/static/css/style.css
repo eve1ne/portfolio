@@ -238,6 +238,25 @@ a:hover {
     color: #EDEDF4;
 }
 
+/* ── Mobile (max 600px) ── */
+@media (max-width: 600px) {
+    .hero {
+        gap: 0;
+        padding: 0;
+        min-height: 300px;
+    }
+    .hero > div {
+        font-size: 12px;
+        margin-left: 5%;
+    }
+    .hero > div > h1 {
+        font-size: 32px;
+    }
+    .hero > div > p {
+        font-size: 16px;
+    }
+}
+
 /* Projects grid */
 .projects-grid {
     display: grid;
@@ -393,3 +412,4 @@ turtle {
   height: 100%;
   border: 0;
 }
+

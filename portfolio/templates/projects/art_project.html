@@ -73,6 +73,52 @@
     font-size: 14px;
     color: #555;
   }
+
+  /* ── Tablet (max 900px) ── */
+  @media (max-width: 900px) {
+    .project-hero {
+      margin: 24px 20px;
+    }
+    .project-hero__image {
+      max-width: 90%;
+    }
+    .gallery-item {
+      flex: 1 1 calc(50% - 16px);
+    }
+    .video-embed iframe {
+      height: 320px;
+    }
+    .figma-embed iframe {
+      height: 420px;
+    }
+}
+
+  /* ── Mobile (max 600px) ── */
+  @media (max-width: 600px) {
+    .project-hero {
+      margin: 16px 16px;
+      gap: 1rem;
+    }
+    .project-hero__image {
+       max-width: 100%;
+      margin-bottom: 1rem;
+    }
+    .project-timeline {
+      margin-bottom: 1rem;
+    }
+    .gallery-item {
+      flex: 1 1 100%;
+    }
+    .video-embed iframe {
+      height: 240px;
+    }
+    .figma-embed iframe {
+      height: 360px;
+    }
+    .case-section {
+      margin-bottom: 2.5rem;
+    }
+  }
 </style>
 {% endblock %}
 

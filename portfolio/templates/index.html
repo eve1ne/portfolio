@@ -79,18 +79,26 @@
         margin-right: auto;
         font-size: 14px;
     }
-    /* ── Tablet (max 900px) ── */
-    @media (max-width: 900px) {
+    
+    @media (max-width: 1200px) {
         .hero {
-            flex-direction: column;
-            align-items: flex-start;
-            text-align: center;
-            padding: 60px 40px;
-            gap: 30px;
+            text-align: left;
+            padding: 0 0 0 5%;
+            gap: 0;
         }
         .hero-image {
-            width: 300px;
-            height: 100%;
+            width: 400px;
+        }
+    }
+    /* ── Tablet (max 900px) ── */
+    @media (max-width: 950px) {
+        .hero {
+            text-align: left;
+            padding: 0 0 0 5%;
+            gap: 0;
+        }
+        .hero-image {
+            display: none;
         }
         .hero > div > h1 {
             font-size: 2.8rem;
@@ -108,14 +116,12 @@
 
     /* ── Mobile (max 600px) ── */
     @media (max-width: 600px) {
-        /* hero */
         .hero {
-            gap: 20px;
-            text-align: center;
+            gap: 0;
+            text-align: left;
         }
         .hero-image {
-            width: 300px;
-            height: 100%;
+            display: none;
         }
         .hero > div > h1 {
             font-size: 2rem;
@@ -123,7 +129,6 @@
         .hero > div > p {
             font-size: 1rem;
         }
-
         .work-fields-buttons {
             grid-template-columns: 1fr;
             gap: 14px;
